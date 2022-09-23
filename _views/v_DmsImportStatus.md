@@ -4,11 +4,12 @@ In dieser View werden die Status beim Importieren von Dokumenten angezeigt.
 
 ## Tabellendefinition
 
-| Name    | Kommentar   |
-| ------- | ----------- |
-| s_seqnr | Primary Key |
-| bez     | Bezeichnung |
-| nr      | Nummer      |
+| Name    | Kommentar           | Datentyp | Länge | Nullable |
+| :------ | :------------------ | :------- | ----: | :------: |
+| s_seqnr | Der Primärschlüssel | key      |    64 |    N     |
+| nr      | Nummer des Eintrags | int      |    32 |    N     |
+| bez     | Die Bezeichnung     | varchar  |   100 |    N     |
+
 
 ## verwendete Status
 
