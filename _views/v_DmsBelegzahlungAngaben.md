@@ -18,7 +18,7 @@ View über alle Belegzahlungsangaben.
 | zahlungslistenr                      | Nummer der Zahlungsliste.                       | int      |    32 |    J     |
 | valutaoderverrechnetdatum            | Valutadatum oder Verrechnetdatum.               | date     |       |    J     |
 | istvollstaendigbezahltoderverrechnet | Gibt an ob vollständig bezahlt oder verrechnet. | smallint |    16 |    N     |
-| totalzahlungbetrag                   | Der Totale Betrag alles Zahlungen des Beleges   | decimal  |  12,2 |    N     |
+| totalzahlungbetrag                   | Der Totale Betrag aller Zahlungen des Beleges   | decimal  |  12,2 |    N     |
 | dmsimport_seqnr                      | Primärschlüssel des DmsImports.                 | long     |    64 |    J     |
 | dmsarchiveguid                       | Die GUID des DmsArchivs.                        | uid      |       |    J     |
 | dmsdocumentid                        | Die Dokumenten ID aus dem DMS.                  | long     |    64 |    J     |

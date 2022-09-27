@@ -41,7 +41,7 @@ CALL "wwappl"."p_insert_DmsImport"(
 
 ```sql
 CALL "wwappl"."p_insert_DmsBeleg"(
-    "@s_insusr" = ' wwdms', -- Benutzer welcher die DB Einträge macht
+    "@s_insusr" = 'wwdms', -- Benutzer welcher die DB Einträge macht
     "@belegcode_seqnr" = null,
     "@belegartnr" = 1,
     "@belegdatum" = '28-02-2022',
