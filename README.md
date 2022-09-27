@@ -1,5 +1,12 @@
 # immotop2-dms-schnittstelle
 
+- [immotop2-dms-schnittstelle](#immotop2-dms-schnittstelle)
+  - [Zusammenspiel Dms mit ImmoTop2](#zusammenspiel-dms-mit-immotop2)
+  - [ImmoTop2 Views](#immotop2-views)
+  - [Abfüllen der Staging-Tabellen](#abfüllen-der-staging-tabellen)
+    - [DB Prozeduren](#db-prozeduren)
+    - [Restservice](#restservice)
+
 Offene DMS Schnittstelle für das Immobilien-ERP ImmoTop2
 
 Dieses Dokument richtet sich an DMS Hersteller und Implementationspartner. Es enthält die Dokumentation über den Aufbau und Inhalt der universellen DMS Schnittstelle ImmoTop2. Das Dokument dient als Implementationshilfe und Nachschlagewerk für DMS Hersteller und Implementationspartner.
@@ -62,3 +69,13 @@ Die nachfolgenden Views dienen der Workflow Engine des Dms dazu, die zulässigen
 | [v_DmsMitarbeiter](_views/v_DmsMitarbeiter.md)                                     | Informationen zu den Mitarbeitern                           |
 | [v_DmsZahlungposten](_views/v_DmsZahlungposten.md)                                 | Informationen zu den Zahlungen                              |
 | [v_DmsBelegzahlungAngaben](_views/v_DmsBelegzahlungAngaben.md)                     | Angaben zu den Belegzahlungen                               |
+
+## Abfüllen der Staging-Tabellen
+
+### DB Prozeduren
+
+Die StaDer Aufruf der Prozeduren ist in folgendem Dokument beschrieben: [EinsatzProzeduren](EinsatzProzeduren.md)
+
+### Restservice
+
+Verwendung des Webservices wird in diesem Dokument beschrieben: [RestService](RestService.md)
