@@ -8,7 +8,7 @@ Anstatt direkt mit Views und Prozeduren auf die ImmoTop 2 Datenbank zuzugreifen,
   - [Post Methoden](#post-methoden)
     - [SpeichereDmsImport](#speicheredmsimport)
     - [UpdateDmsImport](#updatedmsimport)
-    - [UpdateDmsImport](#updatedmsimport-1)
+    - [UpdateDmsBeleg](#updatedmsbeleg)
     - [UpdateDmsBelegPosten](#updatedmsbelegposten)
   - [Get Methoden](#get-methoden)
 
@@ -179,7 +179,7 @@ Request und Response werden im JSON-Format erwartet und zurück geliefert.
 }
 ```
 
-### UpdateDmsImport
+### UpdateDmsBeleg
 
 *Request:*
 
