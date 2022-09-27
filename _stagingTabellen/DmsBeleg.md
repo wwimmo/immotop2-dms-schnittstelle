@@ -2,6 +2,15 @@
 
 Dies ist die Staging-Tabelle für Kreditorenbelege.
 
+## Details zu den Zahlungskonditionen
+
+Üblicherweise ist es so, dass der Anwender beim Kreditor eine Zahlungskondition hinterlegt, die bei der Belegerfassung als Vorschlag verwendet werden soll. Beim Beleg können die übernommenen Werte dann abgeändert werden.
+
+- Falls in der Staging-Tabelle keine Werte bei zahlungkonditionfaelligkeit und zahlungkonditionfaelligperdatum stehen, kommt die Zahlungskondition, die beim Kreditor hinterlegt ist, zum Zuge.
+- Falls in der Staging-Tabelle Werte hinterlegt sind, werden diese übernommen.
+
+Es ist von grossem Vorteil, wenn die Zahlungskondition vom eingescanntem Kreditorenbeleg übernommen wird, d.h. wenn der Anwender die Werte früh erfasst und in die Staging-Tabelle übertragen werden.
+
 ## Tabellendefinition
 
 | Name                            | Kommentar                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Datentyp    | Nullable | Defaultwert |
