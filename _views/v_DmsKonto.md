@@ -1,6 +1,6 @@
 # v_DmsKonto
 
-In dieser View wird der Kontoplan zum Mandanten angezeigt. Konten, die eine Kostenstelle verlangen, sind mit istkos-tenstellepflicht markiert. Welche Kostenstellen zulässig sind und ob gewisse Zusatzfelder zu Pflichtfelder werden, re-gelt der Nebenbuchtyp. Beispielsweise muss bei einem DmsBelegPosten, der auf ein Debitorkonto verweist, zwingend ein Mahntyp mitgegeben werden.
+In dieser View wird der Kontoplan zum Mandanten angezeigt. Konten, die eine Kostenstelle verlangen, sind mit istkostenstellepflicht markiert. Welche Kostenstellen zulässig sind und ob gewisse Zusatzfelder zu Pflichtfelder werden, regelt der Nebenbuchtyp. Beispielsweise muss bei einem DmsBelegPosten, der auf ein Debitorkonto verweist, zwingend ein Mahntyp mitgegeben werden.
 
 ## Tabellendefinition
 
