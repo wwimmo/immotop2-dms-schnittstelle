@@ -307,5 +307,5 @@ Für jede View gibt es eine passende Get Methode:
 | GetDmsZahlungposten                 | v_DmsZahlungposten                                                                                                           |
 | GetDmsImport                        | Tabelle DmsImport                                                                                                            |
 | GetDmsBeleg                         | Tabelle DmsBeleg                                                                                                             |
-| GetDmsBelegPosten                   | Tabelle GetDmsBelegPosten                                                                                                    |
+| GetDmsBelegPosten                   | Tabelle DmsBelegPosten                                                                                                       |
 | GetDmsImportById                    | Aufruf: GetDmsImportById?Id=715271</br>Liefert DmsImport, DmsBeleg und DmsBelegPosten mit der angegebenen Id des DmsImports. |

@@ -72,9 +72,11 @@ Die nachfolgenden Views dienen der Workflow Engine des Dms dazu, die zulässigen
 
 ## Abfüllen der Staging-Tabellen
 
+Die Staging-Tabllen DmsImport, DmsBeleg und DmsBelegPosten können entweder direkt SQL Prozeduren befüllt werden oder mit Hilfe eines Rest Service.
+
 ### DB Prozeduren
 
-Die StaDer Aufruf der Prozeduren ist in folgendem Dokument beschrieben: [EinsatzProzeduren](EinsatzProzeduren.md)
+Der Aufruf der Prozeduren ist in folgendem Dokument beschrieben: [EinsatzProzeduren](EinsatzProzeduren.md)
 
 ### Restservice
 
