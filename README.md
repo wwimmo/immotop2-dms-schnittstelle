@@ -8,6 +8,7 @@
     - [DB Views](#db-views)
     - [DB Prozeduren](#db-prozeduren)
     - [Restservice](#restservice)
+    - [Staging Tabellen](#staging-tabellen)
   - [Ablauf Kreditorenworkflow](#ablauf-kreditorenworkflow)
 
 ## Offene DMS Schnittstelle für das Immobilien-ERP ImmoTop2
@@ -47,13 +48,21 @@ Der Aufruf der Prozeduren ist in folgendem Dokument beschrieben: [Prozeduren](Ei
 
 Verwendung des Webservices wird in diesem Dokument beschrieben: [REST-Services](RestService.md)
 
+### Staging Tabellen
+
+Details zu den Staging Tabellen sind hier Dokumentiert:
+- [DmsImport](_stagingTabellen/DmsImport.md)
+- [DmsBeleg](_stagingTabellen/DmsBeleg.md)
+- [DmsBelegPosten](_stagingTabellen/DmsBelegPosten.md)
+
+
 ## Ablauf Kreditorenworkflow
 
 Der Beleg wird im DMS gescannt.
 
 Der Beleg durchläuft im DMS einen Kreditoren-Workflow.
 
-Metainformationen zum Beleg werden vom DMS ins ImmoTop2 geschrieben. Hierfür werden [Prozeduren](EinsatzProzeduren.md) und ein [REST-Services](RestService.md) zur Verfügung gestellt um die Daten in sogenannte Staging-Tabellen zu schreiben (DmsImport, DmsBeleg und DmsBelegPosten).
+Metainformationen zum Beleg werden vom DMS in die [Staging Tabellen](#staging-tabellen) von ImmoTop2 geschrieben. Hierfür werden [Prozeduren](EinsatzProzeduren.md) und ein [REST-Services](RestService.md) zur Verfügung gestellt um die Daten in sogenannte Staging-Tabellen zu schreiben (DmsImport, DmsBeleg und DmsBelegPosten).
 
 In ImmoTop2 wird der Beleg geprüft. Die Daten werden gegebenenfalls ergänzt oder korrigiert und in die Buchhaltung geschrieben.
 
