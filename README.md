@@ -67,3 +67,5 @@ Metainformationen zum Beleg werden vom DMS in die [Staging Tabellen](#staging-ta
 In ImmoTop2 wird der Beleg geprüft. Die Daten werden gegebenenfalls ergänzt oder korrigiert und in die Buchhaltung geschrieben.
 
 Die Rechnung wird über ImmoTop2 ausbezahlt.
+
+<img src="./_images/AblaufKrediWF.png" alt="Übersicht" style="float:left; margin-right:10px;" />
