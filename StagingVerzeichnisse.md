@@ -27,25 +27,30 @@ Die Steuerdatei enthält Metadaten eines Dokuments und Anweisungen. Sie:
 
 ReplaceDokument wird nicht implementiert, es wird DeleteDocument/NewDocument benutzt
 
-Beispiele für Steuerdateien:
+### Beispiele für Steuerdateien
 
-|--------|
-| ```<?xml version="1.0" encoding="utf-8"?>
+#### Ein ImmoTop2-Benutzer will ein neues Dokument ins DMS laden:
+ ```
+ <?xml version="1.0" encoding="utf-8"?>
 <ControlFile>
 <Action>NewDocument</Action>
 <DmsArchivId>Archiv1</DmsArchivId>
 <DmsDocumentId />
 <DocumentId>117</DocumentId>
 <DateiName>qrcode.bmp</DateiName>
-</ControlFile>```
-|
-```<?xml version="1.0" encoding="utf-8"?>
+</ControlFile>
+```
+
+#### Das DMS teilt ImmoTop2 Informationen zum gespeicherten Dokument mit
+```
+<?xml version="1.0" encoding="utf-8"?>
 <ControlFile>
 <Action>SavedDocument</Action>
 <DmsArchivId>Archiv1</DmsArchivId>
 <DmsDocumentId>1234</DmsDocumentId>
 <DocumentId>117</DocumentId>
 <DateiName>qrcode.bmp</DateiName>
-</ControlFile>```
-|
+</ControlFile>
+```
+
 
