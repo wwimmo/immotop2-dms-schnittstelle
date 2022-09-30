@@ -99,24 +99,22 @@ Wenn das DMS neben der ImmoTop2-DocId zusätzlich auch noch weitere Indexwerte (
 Das <b>Synchronisieren der Indexwerte muss im externen DMS periodisch ausgeführt</b> werden, denn Indexwerte können in ImmoTop2 jederzeit ändern (zB Name einer Liegenschaft)
 
 ImmoTop2 liefert beim Schreiben eines Dokumentes den Primärschlüssel (XML-Element "DocumentId").
-Anhand dieses Primärschlüssels kann das DMS weitere Indexwerte eines Dokumentes anhand der View "v_DmsDokumentIndexFelder" oder des REST-Service "GetDmsDokumentIndexFelderByDmsDocumentId" lesen.
-Sollten diese Indexwerte nicht alle gewünschten Daten enthalten, können mit weiteren Views zusätzliche Daten aus ImmoTop2 gelesen werden.
+Anhand dieses Primärschlüssels kann das DMS weitere Indexwerte eines Dokumentes anhand der View "v_DmsDokumentIndexFelder" oder des REST-Service "GetDmsDokumentIndexFelderByDmsDocumentId" lesen.<b>
+Für praktisch alle DB-Views existieren als Alternative auch ImmoTop2-REST-Services</b>.
 
-So liefert zB die View v_DmsMandant den Namen, den Typ,… des Mandanten.
-<b>Für die meisten Views existieren als Alternative auch ImmoTop2-REST-Services</b>.
-
+Sollten diese Indexwerte nicht alle gewünschten Daten enthalten, können mit weiteren REST-Services oder DB-Views zusätzliche Daten aus ImmoTop2 gelesen werden.
+So liefert zB die View "v_DmsMandant" den Namen, den Typ,… des Mandanten.
 
 ## UseCase5: DMS schreibt Dokumente nach ImmoTop2 (noch nicht implementiert)
 Bemerkung: Dieser Usecase wurde nur für Kreditorenbelege bereits via Kreditoren-Workflow bereits realisiert.
 
-Für alle weiteren Dokumentarten müsste ein analoger Ablauf neu programmiert werden.
+Für alle weiteren Dokumentarten müsste ein analoger Ablauf neu programmiert werden.<br>
 Weil ImmoTop2 der Master für die Indexwerte ist und relativ komplexe Regeln für die Dokumenten-Indexierung hat,<br> 
-müssen beim Import des Dokumentes die Indexwerte in ImmoTop2 gesetzt werden.<br>
+müssen beim Laden auch eines extern gespeicherten Dokumentes die Indexwerte in ImmoTop2 gesetzt werden.<br>
 Diese Indexierung muss für beliebige Dokumentarten deshalb manuell gemacht werden.
 
 Ablauf:
 - Das DMS schreibt eine Steuerdatei in Stagingfolder2
-- ImmoTop2 lädt das Dokument in eine StagingArea
 - ImmoTop2-Benutzer erfahren irgendwie von diesen Dokumenten und starten dann die manuelle Indexierung
 
 <img src="./_images/UseCase5.png" alt="UseCase2" style="float:left; margin-right:10px;" />
