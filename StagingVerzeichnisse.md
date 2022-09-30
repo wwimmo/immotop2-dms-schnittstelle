@@ -28,7 +28,7 @@ Möglicher Inhalt eines Stagingverzeichnisses:<br>
 |                          | GetDocumenInfos | Falls "SavedDocument" verloren ging oder..., kann ImmoTop2 die Infos zu einem Dokument erneut anfordern |
 |                          | DeleteDocument  | Datei im DMS löschen |
 |                          | ReplaceDocument | Wird nicht implementiert, es muss DeleteDocument/NewDocument benutzt werden.<br>Damit ist die Dokumentensynchronisation mit dem Portal einfach möglich. |
-| DmsArchivId              | Text            | Eindeutige ID des Archivs, in dem das Doku-ment gespeichert wird<br>(primär relevant, wenn mehrere Archive installiert sind, die denselben BasisURL haben)  |
+| DmsArchivId              | Text            | Eindeutige ID des Archivs, in dem das Doku-ment gespeichert wird<br>Dient dem ArchivMapping beim Kreditoren-Workflow  |
 | DmsDocumentId            | Text            | Eindeutige ID eines Dokuments im DMS<br>Wird für die Visualisierung der Dokumente via DMS-DocumentViewer benötigt.  |
 | DocumentId               | Text            | Eindeutige ID eines Dokuments in ImmoTop2<br>Primärschlüssel des Dokuments, der für die REST- oder Datenabnkschnittstelle benutzt werden kann.  |
 | DateiName                | Text            | Sprechender Dateiname   |
