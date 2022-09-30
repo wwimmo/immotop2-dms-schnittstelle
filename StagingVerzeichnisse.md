@@ -46,7 +46,7 @@ Möglicher Inhalt eines Stagingverzeichnisses:<br>
 </ControlFile>
 ```
 
-#### Beispiel2: Das DMS teilt ImmoTop2 Informationen zum gespeicherten Dokument mit
+#### Beispiel2: Das DMS teilt ImmoTop2 Informationen zum gespeicherten Dokument mit:
 ```
 <?xml version="1.0" encoding="utf-8"?>
 <ControlFile>
