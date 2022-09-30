@@ -32,28 +32,29 @@ Die ImmoTop2-Schnittstellen ermöglichen den DMS:
 
 ## Daten lesen und schreiben in ImmoTop2
 
+### Datenbank-Schnittstelle
 ImmoTop 2 stellt Stammdaten den DMS in [Views](UebersichtViews.md) zur Verfügung.
 
 Das DMS erhält einen Benutzer für lesenden und schreibenden Zugriff. Die Verbindung auf die [Views](UebersichtViews.md) oder [DB Prozeduren](EinsatzProzeduren.md) erfolgt mittels ODBC, zusätzlich denkbar wäre auch eine Verbindung mittels ADO.Net, OLE.DB. Alternativ stehen auch noch [REST-Services](RestService.md) zur Verfügung.
 
-### DB Views
+#### DB Views
 
 Die DB Views sind in folgendem Dokument beschrieben: [Views](UebersichtViews.md)
 
-### DB Prozeduren
+#### DB Prozeduren
 
 Der Aufruf der Prozeduren ist in folgendem Dokument beschrieben: [Prozeduren](EinsatzProzeduren.md)
 
-### REST-Services
+#### Staging Tabellen
 
-Verwendung der REST-Services wird in diesem Dokument beschrieben: [REST-Services](RestService.md)
-
-### Staging Tabellen
-
-Details zu den Staging Tabellen sind hier Dokumentiert:
+Details zu den Staging Tabellen sind hier dokumentiert:
 - [DmsImport](_stagingTabellen/DmsImport.md)
 - [DmsBeleg](_stagingTabellen/DmsBeleg.md)
 - [DmsBelegPosten](_stagingTabellen/DmsBelegPosten.md)
+
+### REST-Services
+
+Die Verwendung der REST-Services wird in diesem Dokument beschrieben: [REST-Services](RestService.md)
 
 
 ## Ablauf Kreditorenworkflow
