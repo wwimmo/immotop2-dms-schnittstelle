@@ -9,6 +9,7 @@
     - [DB Prozeduren](#db-prozeduren)
     - [REST-Services](#rest-services)
     - [Staging Tabellen](#staging-tabellen)
+  - [Dokumente lesen und schreiben in ImmoTop2](StagingVerzeichnisse.md)
   - [Ablauf Kreditorenworkflow](#ablauf-kreditorenworkflow)
 
 ## Offene DMS Schnittstelle für das Immobilien-ERP ImmoTop2

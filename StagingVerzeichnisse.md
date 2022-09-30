@@ -25,6 +25,7 @@ Möglicher Inhalt eines Stagingverzeichnisses:<br>
 | Version                  | 1.0             | Ermöglicht zukünftige Erweiterungen/Modifikationen der Steuerdatei  |
 | Action                   | NewDocument     | Neues Dokument im DMS speichern  |
 |                          | SavedDocument   | Datei wurde im DMS gespeichert, das DMS liefert Infos des gespeicherten Dokumentes zurück an ImmoTop2. |
+|                          | GetDocumenInfos | Falls "SavedDocument" verloren ging oder..., kann ImmoTop2 die Infos zu einem Dokument erneut anfordern |
 |                          | DeleteDocument  | Datei im DMS löschen |
 |                          | ReplaceDocument | Wird nicht implementiert, es muss DeleteDocument/NewDocument benutzt werden.<br>Damit ist die Dokumentensynchronisation mit dem Portal einfach möglich. |
 | DmsArchivId              | Text            | Eindeutige ID des Archivs, in dem das Doku-ment gespeichert wird<br>(primär relevant, wenn mehrere Archive installiert sind, die denselben BasisURL haben)  |
@@ -46,7 +47,7 @@ Möglicher Inhalt eines Stagingverzeichnisses:<br>
 </ControlFile>
 ```
 
-#### Beispiel2: Das DMS teilt ImmoTop2 Informationen zum gespeicherten Dokument mit
+#### Beispiel2: Das DMS teilt ImmoTop2 Informationen zum gespeicherten Dokument mit:
 ```
 <?xml version="1.0" encoding="utf-8"?>
 <ControlFile>
@@ -105,10 +106,12 @@ Für praktisch alle DB-Views existieren als Alternative auch ImmoTop2-REST-Servi
 Sollten diese Indexwerte nicht alle gewünschten Daten enthalten, können mit weiteren REST-Services oder DB-Views zusätzliche Daten aus ImmoTop2 gelesen werden.
 So liefert zB die View "v_DmsMandant" den Namen, den Typ,… des Mandanten.
 
-## UseCase5: DMS schreibt Dokumente nach ImmoTop2 (noch nicht implementiert)
-Bemerkung: Dieser Usecase wurde nur für Kreditorenbelege bereits via Kreditoren-Workflow bereits realisiert.
+## UseCase5: ImmoTop2 integriert DMS Dokumente (noch nicht implementiert)
+Dokumente, die in einem DM gespeichert sind, sollen in ImmoTop2 "sichtbar gemacht" werden.
 
+Bemerkung: Dieser Usecase wurde nur für Kreditorenbelege bereits via Kreditoren-Workflow bereits realisiert.
 Für alle weiteren Dokumentarten müsste ein analoger Ablauf neu programmiert werden.<br>
+
 Weil ImmoTop2 der Master für die Indexwerte ist und relativ komplexe Regeln für die Dokumenten-Indexierung hat,<br> 
 müssen beim Laden auch eines extern gespeicherten Dokumentes die Indexwerte in ImmoTop2 gesetzt werden.<br>
 Diese Indexierung muss für beliebige Dokumentarten deshalb manuell gemacht werden.
