@@ -13,6 +13,8 @@ Dieses Dokument richtet sich an DMS Hersteller und Implementationspartner. Es en
 
 ## Zusammenspiel Dms mit ImmoTop2
 
+![] (./Uebersicht.jpg)
+
 ImmoTop2 stellt Stammdaten dem Dms in Views zur Verfügung.
 
 Das Dms erhält einen Benutzer für lesenden Zugriff. Die Verbindung auf die Views erfolgt mittels ODBC, zusätzlich denkbar wäre auch eine Verbindung mittels ADO.Net, OLE.DB. Ein REST WebService steht auch zur Verügung.
