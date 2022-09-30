@@ -1,6 +1,6 @@
 # REST-Services
 
-Anstatt direkt mit Views und Prozeduren auf die ImmoTop2 Datenbank zuzugreifen, gibt es auch die Möglichkeit die Daten über REST Services zu lesen und zu schreiben.
+Anstatt direkt mit Views und Prozeduren auf die ImmoTop2 Datenbank zuzugreifen, gibt es auch die Möglichkeit die Daten über REST-Services zu lesen und zu schreiben.
 Der 
 
 - [Webservice](#webservice)
@@ -19,21 +19,30 @@ Im config.ini des ImmoTop2 Server müssen die folgenden beiden Einträge existie
 
 |                          |               |                                                                                                                                                                                                                       |
 | :----------------------- | :------------ | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| RestServiceUrl           | obligatorisch | Der REST-Service wird gestartet, wenn dieser Parameter eine gültige URL enthält.</br>Die Sichtbarkeit im Netzwerk muss gewährleistet und der CommonName des fakultativen Zertifikats muss mit der URL übereinstimmen. |
-| SslCertificateThumbPrint | fakultativ    | Wird nur benötigt, wenn https benutzt wird.</br>Das SSL-Zertifikat muss im Zertifikatspeicher des PC geladen sein.</br>LocalMachine/My                                                                                |
+| RestServiceUrl           | obligatorisch | Der REST-Service wird nur gestartet, wenn dieser Parameter eine gültige URL enthält.</br>Die Sichtbarkeit im Netzwerk muss gewährleistet und der CommonName des fakultativen Zertifikats muss mit der URL übereinstimmen. |
+| SslCertificateThumbPrint | fakultativ    | Wird benötigt, wenn https benutzt wird.</br>Das SSL-Zertifikat muss im Zertifikatspeicher LocalMachine/My des PC geladen sein.</br>Das SSL-Zertifikat wird nicht von W&W geliefert (muss in Domain des Kunden integriert sein)                                                                                |
+
+Bei Problemen befinden sich im Logfile 'WwimmoBusinessServer.log' des ImmoTop2-Servers weitere Informationen:
+- REST-ServiceHost wurde erfolgreich gestartet...
+- REST-ServiceHost wurde nicht gestartet, weil....
+- ...
 
 ## Basisinformationen
 
-Es wird die Basic Auth Authentifizierung verwendet:
+### Authentisierung
+Die REST-Services benutzen Basic Authentisierung:
 
 - Basic Auth
 - User: wwdms
 - Passwort wird von W&W geliefert
 
-Im Header muss die Information zur Version stehen:
+### Versionierung
+Alle REST-Services sind versioniert, damit der ImmoTop2-Server-Service verschiedene DMS-Versionen unterstützen zu können.
+Deshalb muss Request des REST-Services der Header Version vorhanden sein:
 
 - Version:  1.0
 
+### Meldungsformate
 Request und Response werden im JSON-Format erwartet und zurück geliefert.
 
 ## Post Methoden

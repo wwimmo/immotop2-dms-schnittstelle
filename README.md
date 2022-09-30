@@ -20,7 +20,7 @@ Dieses Dokument richtet sich an DMS Hersteller und Implementationspartner. Es en
 
 ## Schnittstellen
 
-<img src="Uebersicht.jpg" alt="Übersicht" style="float:left; margin-right:10px;" />
+<img src="./_images/Uebersicht.jpg" alt="Übersicht" style="float:left; margin-right:10px;" />
 
 Die ImmoTop2-Schnittstellen ermöglichen den DMS:
 - lesende und schreibende Zugriffe via <b>REST-Services</b>
