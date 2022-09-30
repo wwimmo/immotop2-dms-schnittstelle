@@ -13,7 +13,7 @@ Dieses Dokument richtet sich an DMS Hersteller und Implementationspartner. Es en
 
 ## Zusammenspiel Dms mit ImmoTop2
 
-![] (./Uebersicht.jpg)
+<img src="Uebersicht.jpg" alt="Übersicht" style="float:left; margin-right:10px;" />
 
 ImmoTop2 stellt Stammdaten dem Dms in Views zur Verfügung.
 
