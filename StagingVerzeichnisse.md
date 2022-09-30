@@ -4,7 +4,6 @@ Es werden zwei Staging-Verzeichnisse benötigt:
 - Stagingverzeichnis1: Steuerdateien und evtl. Dokumente von ImmoTop2 an das DMS
 - Stagingverzeichnis2: Steuerdateien und evtl. Dokumente vom DMS an ImmoTop2
 
-In ImmoTop2 werden sie konfiguriert unter Schnittstellen/ DMS-Archiv:<br>
 <img src="./_images/dmsarchiv.png" alt="Wo werden Archive konfiguriert?" style="float:left; margin-right:10px;" /><br><br>
 <img src="./_images/ConfigStagingverzeichnisse.png" alt="Stagingverzeichnisse in ImmoTop2 konfigurieren" style="float:left; margin-right:10px;" />
 
