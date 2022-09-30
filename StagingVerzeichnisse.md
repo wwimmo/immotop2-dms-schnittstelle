@@ -105,10 +105,12 @@ Für praktisch alle DB-Views existieren als Alternative auch ImmoTop2-REST-Servi
 Sollten diese Indexwerte nicht alle gewünschten Daten enthalten, können mit weiteren REST-Services oder DB-Views zusätzliche Daten aus ImmoTop2 gelesen werden.
 So liefert zB die View "v_DmsMandant" den Namen, den Typ,… des Mandanten.
 
-## UseCase5: DMS schreibt Dokumente nach ImmoTop2 (noch nicht implementiert)
-Bemerkung: Dieser Usecase wurde nur für Kreditorenbelege bereits via Kreditoren-Workflow bereits realisiert.
+## UseCase5: ImmoTop2 integriert DMS Dokumente (noch nicht implementiert)
+Dokumente, die in einem DM gespeichert sind, sollen in ImmoTop2 "sichtbar gemacht" werden.
 
+Bemerkung: Dieser Usecase wurde nur für Kreditorenbelege bereits via Kreditoren-Workflow bereits realisiert.
 Für alle weiteren Dokumentarten müsste ein analoger Ablauf neu programmiert werden.<br>
+
 Weil ImmoTop2 der Master für die Indexwerte ist und relativ komplexe Regeln für die Dokumenten-Indexierung hat,<br> 
 müssen beim Laden auch eines extern gespeicherten Dokumentes die Indexwerte in ImmoTop2 gesetzt werden.<br>
 Diese Indexierung muss für beliebige Dokumentarten deshalb manuell gemacht werden.
