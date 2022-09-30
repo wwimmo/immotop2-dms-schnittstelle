@@ -111,7 +111,7 @@ Header Update Prozeduren:
 -	@s_updnr
 -	@s_updusr
 
-Mit Hilfe der beiden Varablen @s_seqnr und @s_updnr wird der zu verändernde Datensatz gefunden. @s_seqnr gibt den Foreign Key an und @s_updnr stellt sicher, dass man den aktuellen Datensatz geladen hat und er sich in der Zwi-schenzeit nicht verändert hat. Die restlichen Felder sind identisch.
+Mit Hilfe der beiden Varablen @s_seqnr und @s_updnr wird der zu verändernde Datensatz gefunden. @s_seqnr gibt den Foreign Key an und @s_updnr stellt sicher, dass man den aktuellen Datensatz geladen hat und er sich in der Zwischenzeit nicht verändert hat. Die restlichen Felder sind identisch.
 
 ### DmsImport
 
@@ -164,4 +164,4 @@ CALL "wwappl"."p_update_DmsBelegPosten"(
 
 ## Löschen von Importen
 
-Es ist nicht möglich einen Import physisch zu löschen, man kann aber den dmsimportstatus in der Tabelle DmsImport auf -4 (Zu löschen) setzen.
+Es ist nicht möglich einen Import physisch zu löschen, man kann aber den dmsimportstatus mit Hilfe der Update Funktion in der Tabelle DmsImport auf -4 (Zu löschen) setzen.
