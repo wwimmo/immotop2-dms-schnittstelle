@@ -16,9 +16,9 @@
 Dieses Dokument richtet sich an DMS Hersteller und Implementationspartner. Es enthält die Dokumentation über den Aufbau und Inhalt der universellen DMS Schnittstelle ImmoTop2. Das Dokument dient als Implementationshilfe und Nachschlagewerk für DMS Hersteller und Implementationspartner.
 
 ## Generelles
--	Ein Dokument existiert in ImmoTop2 nur ein einziges mal,</br>(entweder im ImmoTop2-internen Archiv oder im externen Archiv eines DMS).
+-	Ein Dokument existiert in ImmoTop2 nur ein einziges Mal.</br>(entweder im ImmoTop2-internen Archiv oder im externen Archiv eines DMS)
 -	Master für die Indexwerte der Dokumente ist ImmoTop2.
--	Das DMS ermöglicht das Viaualisieren von Dokumenten durch Aufruf einer URL mit der DokumentenID als Platzhalter
+-	Das DMS ermöglicht das Visualisieren von Dokumenten durch Aufruf einer URL mit der DokumentenID als Platzhalter
 -	Dokumente werden immer über eine eindeutige DocID identifiziert
 
 ## Schnittstellen
