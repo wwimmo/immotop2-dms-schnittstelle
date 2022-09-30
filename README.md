@@ -7,7 +7,7 @@
   - [Daten lesen und schreiben in ImmoTop2](#daten-lesen-und-schreiben-in-immotop2)
     - [DB Views](#db-views)
     - [DB Prozeduren](#db-prozeduren)
-    - [Restservice](#restservice)
+    - [REST-Services](#rest-services)
     - [Staging Tabellen](#staging-tabellen)
   - [Ablauf Kreditorenworkflow](#ablauf-kreditorenworkflow)
 
@@ -28,25 +28,25 @@ Dieses Dokument richtet sich an DMS Hersteller und Implementationspartner. Es en
 Die ImmoTop2-Schnittstellen ermöglichen den DMS:
 - lesende und schreibende Zugriffe via <b>[REST-Services](RestService.md)</b>
 - lesende Zugriffe via [DatenbankViews](UebersichtViews.md) und schreibende Zugriffe via [Stored-Procedures](EinsatzProzeduren.md) über eine direkte <b>Datenbank-Schnittstelle</b> 
-- ausführen von Commands (zB Lösche Dokument 123) über Steuerdateien in <b>Staging-Verzeichnissen</b>
+- ausführen von Commands (zB Lösche Dokument 123) über Steuerdateien in <b>[Staging-Verzeichnissen](StagingVerzeichnisse.md)</b>
 
 ## Daten lesen und schreiben in ImmoTop2
 
 ImmoTop 2 stellt Stammdaten den DMS in [Views](UebersichtViews.md) zur Verfügung.
 
-Das DMS erhält einen Benutzer für lesenden Zugriff. Die Verbindung auf die [Views](UebersichtViews.md) erfolgt mittels ODBC, zusätzlich denkbar wäre auch eine Verbindung mittels ADO.Net, OLE.DB. Ein [REST-Services](RestService.md) steht auch zur Verügung.
+Das DMS erhält einen Benutzer für lesenden und schreibenden Zugriff. Die Verbindung auf die [Views](UebersichtViews.md) oder [DB Prozeduren](EinsatzProzeduren.md) erfolgt mittels ODBC, zusätzlich denkbar wäre auch eine Verbindung mittels ADO.Net, OLE.DB. Alternativ stehen auch noch [REST-Services](RestService.md) zur Verfügung.
 
 ### DB Views
 
-Die DV Views sind in folgendem Dokument beschrieben: [Views](UebersichtViews.md)
+Die DB Views sind in folgendem Dokument beschrieben: [Views](UebersichtViews.md)
 
 ### DB Prozeduren
 
 Der Aufruf der Prozeduren ist in folgendem Dokument beschrieben: [Prozeduren](EinsatzProzeduren.md)
 
-### Restservice
+### REST-Services
 
-Verwendung des Webservices wird in diesem Dokument beschrieben: [REST-Services](RestService.md)
+Verwendung der REST-Services wird in diesem Dokument beschrieben: [REST-Services](RestService.md)
 
 ### Staging Tabellen
 

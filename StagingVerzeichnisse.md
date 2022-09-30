@@ -101,7 +101,7 @@ Wenn das DMS neben der ImmoTop2-DocId zusätzlich auch noch weitere Indexwerte (
 Das <b>Synchronisieren der Indexwerte muss im externen DMS periodisch ausgeführt</b> werden, denn Indexwerte können in ImmoTop2 jederzeit ändern (zB Name einer Liegenschaft)
 
 ImmoTop2 liefert beim Schreiben eines Dokumentes den Primärschlüssel (XML-Element "DocumentId").
-Anhand dieses Primärschlüssels kann das DMS weitere Indexwerte eines Dokumentes anhand der View "v_DmsDokument" lesen.
+Anhand dieses Primärschlüssels kann das DMS weitere Indexwerte eines Dokumentes anhand der View "v_DmsDokumentIndexFelder" oder des REST-Service "GetDmsDokumentIndexFelderByDmsDocumentId" lesen.
 Sollten diese Indexwerte nicht alle gewünschten Daten enthalten, können mit weiteren Views zusätzliche Daten aus ImmoTop2 gelesen werden.
 
 So liefert zB die View v_DmsMandant den Namen, den Typ,… des Mandanten.
