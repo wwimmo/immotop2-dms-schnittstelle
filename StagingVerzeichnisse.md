@@ -35,7 +35,8 @@ Die Steuerdatei enthält Metadaten eines Dokuments und Anweisungen. Sie:
 | DateiName                | Text            | Sprechender Dateiname   |
 
 
-ReplaceDokument wird nicht implementiert, es wird DeleteDocument/NewDocument benutzt
+Möglicher Inhalt eines Stagingverzeichnisses:
+<img src="./_images/Stagingverzeichnis.png" alt="Möglicher Inhalt eines Stagingverzeichnisses" style="float:left; margin-right:10px;" />
 
 ### Beispiele für Steuerdateien
 
@@ -62,5 +63,65 @@ ReplaceDokument wird nicht implementiert, es wird DeleteDocument/NewDocument ben
 <DateiName>qrcode.bmp</DateiName>
 </ControlFile>
 ```
+
+# Use Cases
+## UseCase1: ImmoTop2 will ein Dokument ins DMS schreiben
+ImmoTop2 kennt Dokumentarten (Bilanz, Erfolgsrechnung, ....).
+Für jede Dokumentart ist individuell definiert, welche Indexwerte optiona/mandatory beim Speichern eines Dokumentes gesetzt werden müssen.
+Für jede Dokumentart kann der Benutzer konfigurieren, wo Dokumente einer bestimmten Dokumentart gespeichert werden (internes oder externes Archiv).
+Wenn für eine Dokumentart die Checkbox "Ablage DMS" aktiviert wurde, dann werden alle Dokumente dieser Dokumentart im externen Standardarchiv gespeichert.
+Es darf bei den DMS-Archiven genau eines der externen Archive als "Standardarchiv" konfiguriert sein.
+
+Ablauf:
+- ImmoTop2 schreibt einen Verweis-Datensatz ins interne Archiv, der die Adressdaten des extern gespeicherten Dokuments enthält
+- ImmoTop2 schreibt eine Steuerdatei mit Action "NewDocument" in den Stagingfolder1 und liefert dabei den Primärschlüssel des Dokuments (XML-Element "DocumentId")
+- Danach schreibt ImmoTop2 das Dokument in den Stagingfolder1
+- Das DMS erkennt die Steuerdatei und schreibt das Dokument ins Archiv
+- Das DMS löscht danach sowohl die Steuerdatei als auch das Dokument im Stagingfolder1
+- Nun liefert das DMS im StagingFolder2 eine Steuerdatei mit Action "SavedDocument"<br>Diese Steuerdatei enthält die ID des Dokumentes, die für das Löschen bzw. die Visualisierung eines Dokuments via DMS-Documentviewer benötigt wird 
+- ImmoTop2 verarbeitet diese Steuerdatei (aktualisiert den Verweis-Datensatz im internen Archiv) und löscht dann die Steuerdatei in StagingFolder2
+
+## UseCase2: Benutzer will Dokument sehen, das im DMS gespeichert ist
+ImmoTop2 sieht, dass das vom Benutzer angeforderte Dokument in einem externen Archiv espeichert ist und baut den URL für den DMS-Documentviewer anhand des für das Archiv hinterlegten URL.
+Die im URL hinterlegten Platzhalter «%DocId%» in «%ArchivId%» werden durch die effektiven DocId bzw ArchivId ersetzt.
+Danach wird der Standardbrowser gestartet und das Dokument über den DMS-DocumentViewer im Browser geöffnet.
+
+## UseCase3: ImmoTop2 will ein Dokument im DMS löschen
+Ein Benutzer hat sich entscheiden, ein Dokument zu löschen.
+ImmoTop2 sieht anhand der Konfigurationsdaten, dass das Dokument in einem externen Archiv gespeichert ist
+
+Ablauf:
+- ImmoTop2 schreibt eine Steuerdatei mit Action "DeleteDocument" in den Stagingfolder1
+- ImmoTop2 löscht den Verweis auf das Dokument in seiner Datenbank
+- Das DMS löscht das Dokument im Archiv
+- Das DMS löscht die Steuerdatei im Stagingfolder1
+
+
+## UseCase4: Das DMS liest die ImmoTop2-Indexwerte eines Dokumentes
+Wird benötigt, wenn, wenn das DMS neben der ImmoTop2-DocId zusätzlich auch noch die Indexwerte in numerischer und/oder in Textform benötigt (zB Name eines Mandanten). 
+Das Synchronisieren der Indexwerte muss im externen DMS periodisch ausgeführt werden, denn Indexwerte können in ImmoTop2 jederzeit geändert werden (zB Name einer Liegenschaft)
+
+ImmoTop2 liefert beim Schreiben eines Dokumentes den Primärschlüssel (XML-Element "DocumentId").
+Anhand dieses Primärschlüssels kann das DMS weitere Indexwerte eines Dokumentes anhand der View "v_DmsDokument" lesen.
+Sollten diese Indexwerte nicht alle gewünschten Daten enthalten, können mit weiteren Views zusätzliche Daten aus ImmoTop2 gelesen werden.
+
+So liefert zB die View v_DmsMandant den Namen, den Typ,… des Mandanten.
+<b>Für die meisten Views existieren als Alternative auch ImmoTop2-REST-Services</b>.
+
+
+## UseCase5: DMS schreibt Dokumente nach ImmoTop2 (noch nicht implementiert)
+Bemerkung: Dieser Usecase kann für Kreditorenbelege auch via Kreditoren-Workflow realisiert werden.
+
+Das DMS schreibt eine Steuerdatei in Stagingfolder2, das vom ImmoTop2-Server-Prozess überwacht wird.
+Weil ImmoTop2 der Master für die Indexwerte ist, müssen beim Import des Dokumentes die Indexwerte anhand der Regeln in ImmoTop2 korrekt gesetzt werden.
+Diese Indexierung muss deshalb manuell gemacht werden.
+
+<img src="./_images/UseCase5.png" alt="UseCase2" style="float:left; margin-right:10px;" />
+
+
+## UseCase6: DMS liest Dokumente aus ImmoTop2 (noch nicht implementiert)
+Das DMS will Dokumente lesen, die zwar im internen Archiv von ImmoTop2, aber nicht im DMS gespeichert sind.
+Dieser UseCase wird (noch) nicht benötigt. 
+
 
 
