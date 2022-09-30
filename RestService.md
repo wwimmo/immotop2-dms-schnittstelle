@@ -1,6 +1,7 @@
-# Webservice
+# REST-Services
 
-Anstatt direkt mit Views und Prozeduren auf die ImmoTop 2 Datenbank zuzugreifen, gibt es auch die Möglichkeit die Daten über eine Rest Schnittstelle zu lesen und zu schreiben.
+Anstatt direkt mit Views und Prozeduren auf die ImmoTop2 Datenbank zuzugreifen, gibt es auch die Möglichkeit die Daten über REST Services zu lesen und zu schreiben.
+Der 
 
 - [Webservice](#webservice)
   - [Einrichten des Webservice im ImmoTop 2](#einrichten-des-webservice-im-immotop-2)
