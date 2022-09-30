@@ -40,3 +40,4 @@ Die nachfolgenden Views dienen der Workflow Engine des DMS dazu, die zulässigen
 | [v_DmsMitarbeiter](_views/v_DmsMitarbeiter.md)                                     | Informationen zu den Mitarbeitern                           |
 | [v_DmsZahlungposten](_views/v_DmsZahlungposten.md)                                 | Informationen zu den Zahlungen                              |
 | [v_DmsBelegzahlungAngaben](_views/v_DmsBelegzahlungAngaben.md)                     | Angaben zu den Belegzahlungen                               |
+| [v_DmsDokumentIndexFelder](_views/v_DmsDokumentIndexFelder.md)                     | Indexfelder für DMS                                         |

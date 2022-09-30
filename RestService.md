@@ -3,9 +3,12 @@
 Anstatt direkt mit Views und Prozeduren auf die ImmoTop2 Datenbank zuzugreifen, gibt es auch die Möglichkeit die Daten über REST-Services zu lesen und zu schreiben.
 Der 
 
-- [Webservice](#webservice)
+- [REST-Services](#rest-services)
   - [Einrichten des Webservice im ImmoTop 2](#einrichten-des-webservice-im-immotop-2)
   - [Basisinformationen](#basisinformationen)
+    - [Authentisierung](#authentisierung)
+    - [Versionierung](#versionierung)
+    - [Meldungsformate](#meldungsformate)
   - [Post Methoden](#post-methoden)
     - [SpeichereDmsImport](#speicheredmsimport)
     - [UpdateDmsImport](#updatedmsimport)
@@ -17,10 +20,10 @@ Der
 
 Im config.ini des ImmoTop2 Server müssen die folgenden beiden Einträge existieren:
 
-|                          |               |                                                                                                                                                                                                                       |
-| :----------------------- | :------------ | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| RestServiceUrl           | obligatorisch | Der REST-Service wird nur gestartet, wenn dieser Parameter eine gültige URL enthält.</br>Die Sichtbarkeit im Netzwerk muss gewährleistet und der CommonName des fakultativen Zertifikats muss mit der URL übereinstimmen. |
-| SslCertificateThumbPrint | fakultativ    | Wird benötigt, wenn https benutzt wird.</br>Das SSL-Zertifikat muss im Zertifikatspeicher LocalMachine/My des PC geladen sein.</br>Das SSL-Zertifikat wird nicht von W&W geliefert (muss in Domain des Kunden integriert sein)                                                                                |
+|                          |               |                                                                                                                                                                                                                                |
+| :----------------------- | :------------ | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| RestServiceUrl           | obligatorisch | Der REST-Service wird nur gestartet, wenn dieser Parameter eine gültige URL enthält.</br>Die Sichtbarkeit im Netzwerk muss gewährleistet und der CommonName des fakultativen Zertifikats muss mit der URL übereinstimmen.      |
+| SslCertificateThumbPrint | fakultativ    | Wird benötigt, wenn https benutzt wird.</br>Das SSL-Zertifikat muss im Zertifikatspeicher LocalMachine/My des PC geladen sein.</br>Das SSL-Zertifikat wird nicht von W&W geliefert (muss in Domain des Kunden integriert sein) |
 
 Bei Problemen befinden sich im Logfile 'WwimmoBusinessServer.log' des ImmoTop2-Servers weitere Informationen:
 - REST-ServiceHost wurde erfolgreich gestartet...
@@ -283,39 +286,40 @@ In allen Get Methoden wird kein Body übergeben. Dieser Aufruf besteht nur aus d
 
 Für jede View gibt es eine passende Get Methode:
 
-| Methode                             | Bemerkung                                                                                                                    |
-| :---------------------------------- | :--------------------------------------------------------------------------------------------------------------------------- |
-| GetDmsImportFehlerCode              | v_DmsImportFehlerCode                                                                                                        |
-| GetDmsImportStatus                  | v_DmsImportStatus                                                                                                            |
-| GetDmsMandant                       | v_DmsMandant                                                                                                                 |
-| GetDmsMandantZahlstelle             | v_DmsMandantZahlstelle                                                                                                       |
-| GetDmsKreditor                      | v_DmsKreditor                                                                                                                |
-| GetDmsKreditorZahlstelle            | v_DmsKreditorZahlstelle                                                                                                      |
-| GetDmsKonto                         | v_DmsKonto                                                                                                                   |
-| GetDmsExportKonto                   | v_DmsExportKonto                                                                                                             |
-| GetDmsKontoKostenstelleTyp          | v_DmsKontoKostenstelleTyp                                                                                                    |
-| GetDmsKontoKostenstelle             | v_DmsKontoKostenstelle                                                                                                       |
-| GetDmsKostenstelle                  | v_DmsKostenstelle                                                                                                            |
-| GetDmsExportKostenstelle            | v_DmsExportKostenstelle                                                                                                      |
-| GetDmsMwstAbrechnungZiffer          | v_DmsMwstAbrechnungZiffer                                                                                                    |
-| GetDmsVorsteuerAnteil               | v_DmsvorsteuerAnteil                                                                                                         |
-| GetDmsKostenGruppeKostenKonto       | v_DmsKostenGruppeKostenKonto                                                                                                 |
-| GetDmsMahnungTyp                    | v_DmsMahnungTyp                                                                                                              |
-| GetDmsMwstCode                      | v_DmsMwstCode                                                                                                                |
-| GetDmsMwstSatz                      | v_DmsMwstSatz                                                                                                                |
-| GetDmsAbrechnungPeriode             | v_DmsAbrechnungPeriode                                                                                                       |
-| GetDmsBelegCode                     | v_DmsBelegCode                                                                                                               |
-| GetDmsObjekt                        | v_DmsObjekt                                                                                                                  |
-| GetDmsMieter                        | v_DmsMieter                                                                                                                  |
-| GetDmsVerhaeltnis                   | v_DmsVerhaeltnis                                                                                                             |
-| GetDmsCode                          | v_DmsCode                                                                                                                    |
-| GetDmsLiegenschaft                  | v_DmsLiegenschaft                                                                                                            |
-| GetDmsLiegenschaftGruppeNebenkosten | v_DmsLiegenschaftGruppeNebenkosten                                                                                           |
-| GetDmsBuchungDokument               | v_DmsBuchungDokument                                                                                                         |
-| GetDmsMitarbeiter                   | v_DmsMitarbeiter                                                                                                             |
-| GetDmsBelegzahlungAngaben           | v_DmsBelegzahlungAngaben                                                                                                     |
-| GetDmsZahlungposten                 | v_DmsZahlungposten                                                                                                           |
-| GetDmsImport                        | Tabelle DmsImport                                                                                                            |
-| GetDmsBeleg                         | Tabelle DmsBeleg                                                                                                             |
-| GetDmsBelegPosten                   | Tabelle DmsBelegPosten                                                                                                       |
-| GetDmsImportById                    | Aufruf: GetDmsImportById?Id=715271</br>Liefert DmsImport, DmsBeleg und DmsBelegPosten mit der angegebenen Id des DmsImports. |
+| Methode                                  | Bemerkung                                                                                                                    |
+| :--------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------- |
+| GetDmsImportFehlerCode                   | v_DmsImportFehlerCode                                                                                                        |
+| GetDmsImportStatus                       | v_DmsImportStatus                                                                                                            |
+| GetDmsMandant                            | v_DmsMandant                                                                                                                 |
+| GetDmsMandantZahlstelle                  | v_DmsMandantZahlstelle                                                                                                       |
+| GetDmsKreditor                           | v_DmsKreditor                                                                                                                |
+| GetDmsKreditorZahlstelle                 | v_DmsKreditorZahlstelle                                                                                                      |
+| GetDmsKonto                              | v_DmsKonto                                                                                                                   |
+| GetDmsExportKonto                        | v_DmsExportKonto                                                                                                             |
+| GetDmsKontoKostenstelleTyp               | v_DmsKontoKostenstelleTyp                                                                                                    |
+| GetDmsKontoKostenstelle                  | v_DmsKontoKostenstelle                                                                                                       |
+| GetDmsKostenstelle                       | v_DmsKostenstelle                                                                                                            |
+| GetDmsExportKostenstelle                 | v_DmsExportKostenstelle                                                                                                      |
+| GetDmsMwstAbrechnungZiffer               | v_DmsMwstAbrechnungZiffer                                                                                                    |
+| GetDmsVorsteuerAnteil                    | v_DmsvorsteuerAnteil                                                                                                         |
+| GetDmsKostenGruppeKostenKonto            | v_DmsKostenGruppeKostenKonto                                                                                                 |
+| GetDmsMahnungTyp                         | v_DmsMahnungTyp                                                                                                              |
+| GetDmsMwstCode                           | v_DmsMwstCode                                                                                                                |
+| GetDmsMwstSatz                           | v_DmsMwstSatz                                                                                                                |
+| GetDmsAbrechnungPeriode                  | v_DmsAbrechnungPeriode                                                                                                       |
+| GetDmsBelegCode                          | v_DmsBelegCode                                                                                                               |
+| GetDmsObjekt                             | v_DmsObjekt                                                                                                                  |
+| GetDmsMieter                             | v_DmsMieter                                                                                                                  |
+| GetDmsVerhaeltnis                        | v_DmsVerhaeltnis                                                                                                             |
+| GetDmsCode                               | v_DmsCode                                                                                                                    |
+| GetDmsLiegenschaft                       | v_DmsLiegenschaft                                                                                                            |
+| GetDmsLiegenschaftGruppeNebenkosten      | v_DmsLiegenschaftGruppeNebenkosten                                                                                           |
+| GetDmsBuchungDokument                    | v_DmsBuchungDokument                                                                                                         |
+| GetDmsMitarbeiter                        | v_DmsMitarbeiter                                                                                                             |
+| GetDmsBelegzahlungAngaben                | v_DmsBelegzahlungAngaben                                                                                                     |
+| GetDmsZahlungposten                      | v_DmsZahlungposten                                                                                                           |
+| GetDmsImport                             | Tabelle DmsImport                                                                                                            |
+| GetDmsBeleg                              | Tabelle DmsBeleg                                                                                                             |
+| GetDmsBelegPosten                        | Tabelle DmsBelegPosten                                                                                                       |
+| GetDmsImportById                         | Aufruf: GetDmsImportById?Id=715271</br>Liefert DmsImport, DmsBeleg und DmsBelegPosten mit der angegebenen Id des DmsImports. |
+| GetDmsDokumentIndexFelderByDmsDocumentId | v_DmsDokumentIndexFelder                                                                                                     |
