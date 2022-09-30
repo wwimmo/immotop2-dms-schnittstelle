@@ -1,37 +1,50 @@
 # immotop2-dms-schnittstelle
 
 - [immotop2-dms-schnittstelle](#immotop2-dms-schnittstelle)
-  - [Zusammenspiel Dms mit ImmoTop2](#zusammenspiel-dms-mit-immotop2)
+  - [Schnittstellen](#Schnittstellen)
   - [ImmoTop2 Views](#immotop2-views)
   - [Abfüllen der Staging-Tabellen](#abfüllen-der-staging-tabellen)
     - [DB Prozeduren](#db-prozeduren)
     - [Restservice](#restservice)
+  - [StagingVerzeichnisse](./StagingVerzeichnisse.md)
 
-Offene DMS Schnittstelle für das Immobilien-ERP ImmoTop2
+#Offene DMS Schnittstelle für das Immobilien-ERP ImmoTop2
 
 Dieses Dokument richtet sich an DMS Hersteller und Implementationspartner. Es enthält die Dokumentation über den Aufbau und Inhalt der universellen DMS Schnittstelle ImmoTop2. Das Dokument dient als Implementationshilfe und Nachschlagewerk für DMS Hersteller und Implementationspartner.
 
-## Zusammenspiel Dms mit ImmoTop2
+## Generelles
+-	Ein Dokument existiert in ImmoTop2 nur ein einziges </br>(entweder im ImmoTop2-internen Archiv oder im externen Archiv eines DMS)
+-	Master für die Indexwerte der Dokumente ist ImmoTop2.
+-	Das DMS ermöglicht das Viaualisieren von Dokumenten durch Aufruf eines URL mit der DokumentenID als Platzhalter
+-	Dokumente werden immer über eine eindeutige DocID identifiziert
+
+## Schnittstellen
 
 <img src="Uebersicht.jpg" alt="Übersicht" style="float:left; margin-right:10px;" />
 
-ImmoTop2 stellt Stammdaten dem Dms in Views zur Verfügung.
+Die ImmoTop2-Schnittstellen ermöglichen den DMS:
+- lesende und schreibende Zugriffe via <b>REST-Services</b>
+- lesende Zugriffe via DatenbankViews und schreibende Zugriffe via Stored-Procedures über eine direkte <b>Datenbank-Schnittstelle</b> 
+- ausführen von Commands (zB Lösche Dokument 123) über Steuerdateien in <b>Staging-Verzeichnissen</b>
 
-Das Dms erhält einen Benutzer für lesenden Zugriff. Die Verbindung auf die Views erfolgt mittels ODBC, zusätzlich denkbar wäre auch eine Verbindung mittels ADO.Net, OLE.DB. Ein REST WebService steht auch zur Verügung.
+ZU UEBERAREITEN
+stellt Stammdaten dem DMS in Views zur Verfügung.
 
-Der Beleg wird im Dms gescannt.
+Das DMS erhält einen Benutzer für lesenden Zugriff. Die Verbindung auf die Views erfolgt mittels ODBC, zusätzlich denkbar wäre auch eine Verbindung mittels ADO.Net, OLE.DB. Ein REST WebService steht auch zur Verügung.
 
-Der Beleg durchläuft im Dms einen Kreditoren-Workflow.
+Der Beleg wird im DMS gescannt.
 
-Metainformationen zum Beleg werden vom Dms in ImmoTop2 geschrieben. Hierfür hat das Dms Schreibrechte auf ausgewählte Dms-Tabellen vom ImmoTop2, sogenannte Staging-Tabellen.
+Der Beleg durchläuft im DMS einen Kreditoren-Workflow.
+
+Metainformationen zum Beleg werden vom DMS in ImmoTop2 geschrieben. Hierfür hat das DMS Schreibrechte auf ausgewählte DMS-Tabellen vom ImmoTop2, sogenannte Staging-Tabellen.
 
 In ImmoTop2 wird der Beleg geprüft. Die Daten werden gegebenenfalls ergänzt oder korrigiert und in die Buchhaltung geschrieben.
 
 Die Rechnung wird über ImmoTop2 ausbezahlt.
 
-## ImmoTop2 Views
+## ImmoTop2 Datenbank-Views
 
-Die nachfolgenden Views dienen der Workflow Engine des Dms dazu, die zulässigen Datenkombinationen zu ermitteln. Fragen, die beantwortet werden, sind: 
+Die nachfolgenden Views dienen der Workflow Engine des DMS dazu, die zulässigen Datenkombinationen zu ermitteln. Fragen, die beantwortet werden, sind: 
 
 - Existiert der Kreditor bereits?
 - Wie ist der Kontenrahmen des Mandanten?
