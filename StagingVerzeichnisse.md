@@ -6,7 +6,7 @@ Es werden zwei Staging-Verzeichnisse benötigt:
 
 In diese Staging-Verzeichnisse werden Steuerdateien und Dokumente geschrieben.
 In ImmoTop2 werden sie konfiguriert unter Schnittstellen/ DMS-Archiv:
-<img src="../_images/ConfigStagingVerzeichnisse" alt="Stagingverzeichnisse in ImmoTop2 konfigurieren" style="float:left; margin-right:10px;" />
+<img src="./_images/ConfigStagingVerzeichnisse" alt="Stagingverzeichnisse in ImmoTop2 konfigurieren" style="float:left; margin-right:10px;" />
 
 
 ## Namengebung der Dateien in den Stagingverzeichnissen
