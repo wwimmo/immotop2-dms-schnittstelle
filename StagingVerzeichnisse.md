@@ -1,5 +1,5 @@
-# Schnittstelle Staging-Verzeichnisse
-Die Staging-Verzeichnisse werden als einheitliche Lowtech-Schnittstelle für die Kommunikation zwischen ImmoTop2 und verschiedenen DMS genutzt.
+# Dokumenten-Schnittstelle via Staging-Verzeichnisse
+Die Staging-Verzeichnisse werden als einheitliche Lowtech-Schnittstelle für die Kommunikation zwischen ImmoTop2 und verschiedenen DMS-Produkten genutzt.
 Es werden zwei Staging-Verzeichnisse benötigt:
 - Stagingverzeichnis1: Steuerdateien und evtl. Dokumente von ImmoTop2 an das DMS
 - Stagingverzeichnis2: Steuerdateien und evtl. Dokumente vom DMS an ImmoTop2
