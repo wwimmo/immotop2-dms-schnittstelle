@@ -81,7 +81,7 @@ Ablauf:
 
 ## UseCase2: ImmoTop2-Benutzer will ein Dokument sehen, das im DMS gespeichert ist
 ImmoTop2 weiss, dass das vom Benutzer verlangte Dokument in einem externen Archiv gespeichert ist und baut den URL für den DMS-Documentviewer anhand des für das Archiv hinterlegten URL.
-Die im URL des Archivs hinterlegten Platzhalter «%DocId%» in «%ArchivId%» werden durch die effektiven DocId bzw ArchivId ersetzt (gilt nicht für das DMS Docuware).
+Die im URL des Archivs hinterlegten Platzhalter «%DocId%» und «%ArchivId%» werden durch die effektiven DocId bzw ArchivId ersetzt (gilt nicht für das DMS Docuware).
 Danach wird der Standardbrowser gestartet und das Dokument über den DMS-DocumentViewer im Browser geöffnet.<br>
 Der im Browser gestartete DMS-Documentviewer ermöglicht dann den Download, das Drucken,... eines Dokumentes. 
 
