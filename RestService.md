@@ -18,17 +18,19 @@ Der
 
 ## Einrichten des Webservice im ImmoTop 2
 
-Im config.ini des ImmoTop2 Server müssen die folgenden beiden Einträge existieren:
+In der Datei 'config.ini' im Verzeichnis des ImmoTop2 Server-Prozesses müssen die folgenden beiden Einträge existieren:
 
 |                          |               |                                                                                                                                                                                                                                |
 | :----------------------- | :------------ | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| RestServiceUrl           | obligatorisch | Der REST-Service wird nur gestartet, wenn dieser Parameter eine gültige URL enthält.</br>Die Sichtbarkeit im Netzwerk muss gewährleistet und der CommonName des fakultativen Zertifikats muss mit der URL übereinstimmen.      |
-| SslCertificateThumbPrint | fakultativ    | Wird benötigt, wenn https benutzt wird.</br>Das SSL-Zertifikat muss im Zertifikatspeicher LocalMachine/My des PC geladen sein.</br>Das SSL-Zertifikat wird nicht von W&W geliefert (muss in Domain des Kunden integriert sein) |
+| RestServiceUrl           | obligatorisch | Der REST-Service wird nur gestartet, wenn dieser Parameter eine gültige URL enthält.</br>Die Sichtbarkeit im Netzwerk muss gewährleistet und der CommonName des fakultativen Zertifikats muss mit der URL übereinstimmen.<br>URL und Port können frei gewählt werden (der Port darf natürlich noch nicht von einem anderen Prozess belegt sein sonst kann der REST-Service nicht gestartet werden).<br><br>Wenn konfiguriert wird:<br>RestServiceUrl=http://localhost:8080<br>dann kann zB in Postman mit GET der folgende REST-Service aufgerufen werden http://localhost:8080/Test     |
+| SslCertificateThumbPrint | fakultativ    | Wird benötigt, wenn https benutzt wird.</br>Enthält den Thumbprint des SSL-Zertifikats. Wenn der Konfigurationsparameter einen Leerstring "" enthält, laufen die Services via http.<br>Das SSL-Zertifikat muss im Zertifikatspeicher LocalMachine/My des PC geladen sein.</br>Das SSL-Zertifikat wird nicht von W&W geliefert (muss in Domain des Kunden integriert sein) |
 
 Bei Problemen befinden sich im Logfile 'WwimmoBusinessServer.log' des ImmoTop2-Servers weitere Informationen:
 - REST-ServiceHost wurde erfolgreich gestartet...
 - REST-ServiceHost wurde nicht gestartet, weil....
 - ...
+
+Weil diese Parameter nur sehr selten ändern sollten, wurde die Lösung via 'config.ini' gewählt. Dh. nach dem Aktualisieren der Parameter muss der Server-Prozess neu gestartet werden.
 
 ## Basisinformationen
 
