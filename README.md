@@ -11,7 +11,7 @@
       - [Staging Tabellen](#staging-tabellen)
     - [REST-Services](#rest-services)
   - [Ablauf Kreditorenworkflow](#ablauf-kreditorenworkflow)
-  - [Integration in SQL Server](./IntegrationInSQLServer.md)
+  - [Integration in SQL Server](IntegrationSqlServer.md)
 
 ## Offene DMS Schnittstelle für das Immobilien-ERP ImmoTop2
 
