@@ -10,7 +10,7 @@ Der direkte Zugang von einem SQL-Server zu Anywhere17-Datenbankobjekten in der v
 - Installation über einen Script
   (siehe Kap 1.4.6.2 im Dokument [SQL-Anywhere-Server-Programming](https://help.sap.com/doc/9457f880abbe4bc8bebc18109daae0ca/17.0/en-US/SQL-Anywhere-Server-Programming-en.pdf))
 
-Bei den Optionen müssen "RPC", "RPC Out"  und "Allow Inprocess" aktiviert sein.
+Bei den Optionen des OLEDB-Providers müssen "RPC", "RPC Out"  und "Allow Inprocess" aktiviert sein.
 Alle anderen Optionen können ignoriert werden.
 
 ## SQL Syntax
