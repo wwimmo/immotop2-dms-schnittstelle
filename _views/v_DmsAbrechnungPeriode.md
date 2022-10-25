@@ -10,7 +10,7 @@ Im Detail heisst das: Von der Kostenstelle gelangen wir über das Feld liegensch
 
 | Name                                | Kommentar                                                                                          | Datentyp | Länge | Nullable |
 | :---------------------------------- | :------------------------------------------------------------------------------------------------- | :------- | ----: | :------: |
-| abrechnungperio-de_seqnr            | Der Primärschlüssel                                                                                | bigint   |    64 |    N     |
+| abrechnungperiode_seqnr             | Der Primärschlüssel                                                                                | bigint   |    64 |    N     |
 | mandant_seqnr                       | Der Mandant.                                                                                       | bigint   |    64 |    N     |
 | mandnr                              | Die Mandantennummer                                                                                | Int      |    31 |    N     |
 | liegenschaftgruppenebenkosten_seqnr | Die Liegenschaftengruppe. Liegenschaftengruppen können unterschiedliche Abrechnungsperioden haben. | bigint   |    64 |    N     |
