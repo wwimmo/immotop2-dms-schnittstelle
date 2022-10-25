@@ -5,11 +5,11 @@
   - [Generelles](#generelles)
   - [Schnittstellen](#schnittstellen)
   - [Daten lesen und schreiben in ImmoTop2](#daten-lesen-und-schreiben-in-immotop2)
-    - [DB Views](#db-views)
-    - [DB Prozeduren](#db-prozeduren)
+    - [Datenbank-Schnittstelle](#datenbank-schnittstelle)
+      - [DB Views](#db-views)
+      - [DB Prozeduren](#db-prozeduren)
+      - [Staging Tabellen](#staging-tabellen)
     - [REST-Services](#rest-services)
-    - [Staging Tabellen](#staging-tabellen)
-  - [Dokumente lesen und schreiben in ImmoTop2](StagingVerzeichnisse.md)
   - [Ablauf Kreditorenworkflow](#ablauf-kreditorenworkflow)
   - [Integration in SQL Server](IntegrationSQLServer.md)
 ## Offene DMS Schnittstelle für das Immobilien-ERP ImmoTop2
@@ -37,6 +37,8 @@ Die ImmoTop2-Schnittstellen ermöglichen den DMS:
 ImmoTop 2 stellt Stammdaten den DMS in [Views](UebersichtViews.md) zur Verfügung.
 
 Das DMS erhält einen Benutzer für lesenden und schreibenden Zugriff. Die Verbindung auf die [Views](UebersichtViews.md) oder [DB Prozeduren](EinsatzProzeduren.md) erfolgt mittels ODBC, zusätzlich denkbar wäre auch eine Verbindung mittels ADO.Net, OLE.DB. Alternativ stehen auch noch [REST-Services](RestService.md) zur Verfügung.
+
+Aus Performancegründen, wird empfohlen, die Daten Lokal in Zwischentabellen zu speichern und nicht in Echtzeit auf die Views oder den REST-Service zuzugreifen.
 
 #### DB Views
 

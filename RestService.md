@@ -290,7 +290,7 @@ Für jede View gibt es eine passende Get Methode:
 
 | Methode                                  | Bemerkung                                                                                                                    |
 | :--------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------- |
-| GetDmsImportFehlerCode                   | v_DmsImportFehlerCode                                                                                                        |
+| GetDmsImportFehlerCodes                  | v_DmsImportFehlerCode                                                                                                        |
 | GetDmsImportStatus                       | v_DmsImportStatus                                                                                                            |
 | GetDmsMandant                            | v_DmsMandant                                                                                                                 |
 | GetDmsMandantZahlstelle                  | v_DmsMandantZahlstelle                                                                                                       |
