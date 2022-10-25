@@ -111,7 +111,7 @@ Header Update Prozeduren:
 -	@s_updnr
 -	@s_updusr
 
-Mit Hilfe der beiden Varablen @s_seqnr und @s_updnr wird der zu verändernde Datensatz gefunden. @s_seqnr gibt den Foreign Key an und @s_updnr stellt sicher, dass man den aktuellen Datensatz geladen hat und er sich in der Zwischenzeit nicht verändert hat. Die restlichen Felder sind identisch.
+Mit Hilfe der beiden Variablen @s_seqnr und @s_updnr wird der zu verändernde Datensatz gefunden. @s_seqnr gibt den Foreign Key an und @s_updnr stellt sicher, dass man den aktuellen Datensatz geladen hat und er sich in der Zwischenzeit nicht verändert hat. Die restlichen Felder sind identisch.
 
 ### DmsImport
 
