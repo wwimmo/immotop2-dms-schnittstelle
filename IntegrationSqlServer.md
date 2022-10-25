@@ -15,9 +15,9 @@ Alle anderen Optionen können ignoriert werden.
 
 ## SQL Syntax
 Über den OLE-DB Provider kann für die SQL-Statements genutzt werden:
-- Openquery-Syntax: Das zweite SQL-Statement wird durchgereicht
+- Openquery-Syntax: Das zweite SQL-Statement wird durchgereicht<br>
   SELECT * FROM OPENQUERY( SADATABASE, 'SELECT * FROM Customers' )
-- Microsoft four-part table referencing syntax
+- Microsoft four-part table referencing syntax<br>
   SELECT * FROM SADATABASE.demo.GROUPO.Customers
 
 ## Unterstützte OLE DB Interfaces
