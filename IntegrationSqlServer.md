@@ -26,4 +26,4 @@ Das OLE DB API bestehet aus einem Set von interfaces
 
 oder
 
-[Kap 1.4.7.](https://help.sap.com/doc/9457f880abbe4bc8bebc18109daae0ca/17.0/en-US/SQL-Anywhere-Server-Programming-en.pdf)
+siehe Kap 1.4.7. im Dokument [SQL-Anywhere-Server-Programming](https://help.sap.com/doc/9457f880abbe4bc8bebc18109daae0ca/17.0/en-US/SQL-Anywhere-Server-Programming-en.pdf)
