@@ -15,15 +15,17 @@ Der
     - [UpdateDmsBeleg](#updatedmsbeleg)
     - [UpdateDmsBelegPosten](#updatedmsbelegposten)
   - [Get Methoden](#get-methoden)
+    - [Views](#views)
+    - [Filterung](#filterung)
 
 ## Einrichten des Webservice im ImmoTop 2
 
 In der Datei 'config.ini' im Verzeichnis des ImmoTop2 Server-Prozesses müssen die folgenden beiden Einträge existieren:
 
-|  Name des Parameters  | Notwendigkeit |  Kommentar   |
-| :----------------------- | :------------ | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| RestServiceUrl           | obligatorisch | Der REST-Service wird nur gestartet, wenn dieser Parameter eine gültige URL enthält.</br>Die Sichtbarkeit im Netzwerk muss gewährleistet sein.<br>URL und Port können frei gewählt werden (der Port darf natürlich noch nicht von einem anderen Prozess belegt sein, sonst kann der REST-Service nicht gestartet werden).<br><br>Wenn konfiguriert wird:<br>RestServiceUrl=http://localhost:8080/ImmoTop2<br>dann kann zB. in Postman mit GET der folgende REST-Service aufgerufen werden http://localhost:8080/ImmoTop2/Test     |
-| SslCertificateThumbPrint | fakultativ    | Wird benötigt, wenn https benutzt wird.</br>Enthält den Thumbprint des SSL-Zertifikats.<br>Das SSL-Zertifikat muss im Zertifikatspeicher LocalMachine/My des PC geladen sein.</br>Das SSL-Zertifikat wird nicht von W&W geliefert, denn der Commonname sollte ja in die Domain des Kunden integriert sein.<br><br>Wenn der Konfigurationsparameter keinen Wert enthält, sind die REST-Services via http erreichbar. |
+| Name des Parameters      | Notwendigkeit | Kommentar                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| :----------------------- | :------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| RestServiceUrl           | obligatorisch | Der REST-Service wird nur gestartet, wenn dieser Parameter eine gültige URL enthält.</br>Die Sichtbarkeit im Netzwerk muss gewährleistet sein.<br>URL und Port können frei gewählt werden (der Port darf natürlich noch nicht von einem anderen Prozess belegt sein, sonst kann der REST-Service nicht gestartet werden).<br><br>Wenn konfiguriert wird:<br>RestServiceUrl=http://localhost:8080/ImmoTop2<br>dann kann zB. in Postman mit GET der folgende REST-Service aufgerufen werden http://localhost:8080/ImmoTop2/Test |
+| SslCertificateThumbPrint | fakultativ    | Wird benötigt, wenn https benutzt wird.</br>Enthält den Thumbprint des SSL-Zertifikats.<br>Das SSL-Zertifikat muss im Zertifikatspeicher LocalMachine/My des PC geladen sein.</br>Das SSL-Zertifikat wird nicht von W&W geliefert, denn der Commonname sollte ja in die Domain des Kunden integriert sein.<br><br>Wenn der Konfigurationsparameter keinen Wert enthält, sind die REST-Services via http erreichbar.                                                                                                           |
 
 Bei Problemen befinden sich im Logfile 'WwimmoBusinessServer.log' des ImmoTop2-Servers weitere Informationen:
 - REST-ServiceHost wurde erfolgreich gestartet...
@@ -60,41 +62,40 @@ Request und Response werden im JSON-Format erwartet und zurück geliefert.
 {
     "DmsArchivGuid": "f1234f8d81044c9a8a262c4b7d8a07b3",
     "DmsDocumentGuid": "",
-    "DmsDocumentId": 1234698,
+    "DmsDocumentId": 123123124,
     "DmsDateiName": "dummy_2022.06.14_08_50:25.pdf",
-    "DmsImportFehlerCode": null,
-    "DmsImportStatusCode": 1,
-    "DmsImportStatusId": 1,
-    "DmsInsertedTs": "2022-06-14T00:00:00",
-    "DmsInsertedUser": "ASE",
-    "DmsUpdateTs": "2022-06-14T00:00:00",
-    "DmsUpdateUser": "ASE",
+    "dmsimportfehlercode_seqnr": null,
+    "dmsimportstatus_seqnr": 1,
+    "dmsinsts": "2022-06-14T00:00:00",
+    "dmsinsusr": "ASE",
+    "dmsupdatets": "2022-06-14T00:00:00",
+    "dmsupdateusr": "ASE",
     "DmsBeleg": {
-        "BelegArtNummer": 1,
+        "BelegArtNr": 1,
         "BelegDatum": "2022-06-14T00:00:00",
-        "BelegCodeId": 32,
+        "belegcode_seqnr": 302,
         "BelegNummer": "",
         "BenoetigtGeraetEintrag": false,
         "BenoetigtUnterhaltEintrag": false,
         "BuchungDatum": "2022-06-14T00:00:00",
         "EsrReferenzNummer": "955318100004910058518606215",
         "HatZahlungSperre": false,
-        "KreditorId": 157,
+        "kreditor_seqnr": 157,
         "KreditorCo": "",
         "KreditorGeschlechtNummer": null,
         "KreditorLand": "",
-        "KreditorMwstNummer": "",
+        "kreditormwstnr_seqnr": "",
         "KreditorName": "",
         "KreditorPlz": "",
         "KreditorPostfach": "",
         "KreditorStrasse": "",
         "KreditorVorname": "",
         "KreditorZahlstelleKontoDetail": "",
-        "MandantId": 3,
+        "mand_seqnr": 3,
         "QrCodePayload": "",
         "RechnungNummer": "",
-        "ZahlstelleKreditorId": 4866,
-        "ZahlstelleMandantId": null,
+        "zahlstellekreditor_seqnr": 4866,
+        "zahlstellemandant_seqnr": null,
         "ZahlungGrund": "",
         "ZahlungKonditionFaelligkeit": 30,
         "ZahlungKonditionFaelligPerDatum": null,
@@ -105,15 +106,15 @@ Request und Response werden im JSON-Format erwartet und zurück geliefert.
                 "BetragMwstVoll": null,
                 "BuchungText": "TestImport_14.06.2022 08:50:25",
                 "FaelligkeitDatum": "2022-07-14T00:00:00",
-                "KontoId": 74,
-                "KostenstelleId": 6,
-                "MahnungTypId": 11,
+                "konto_seqnr": 74,
+                "kostenstelle_seqnr": 6,
+                "mahnungtyp_seqnr": 11,
                 "Menge": null,
-                "MwstAbrechnungZifferId": null,
-                "MwstCodeId": null,
+                "mwstabrechnungziffer_seqnr": null,
+                "mwstcode_seqnr": null,
                 "MwstSatz": null,
                 "NkabrechnungPeriodeStichtag": null,
-                "Nummer": 1,
+                "Nr": 1,
                 "PreisProEinheit": null,
                 "VorsteuerAnteil": null
             },
@@ -123,15 +124,15 @@ Request und Response werden im JSON-Format erwartet und zurück geliefert.
                 "BetragMwstVoll": null,
                 "BuchungText": "TestImport_14.06.2022 08:50:25",
                 "FaelligkeitDatum": "2022-07-14T00:00:00",
-                "KontoId": 74,
-                "KostenstelleId": 6,
-                "MahnungTypId": 11,
+                "konto_seqnr": 74,
+                "kostenstelle_seqnr": 6,
+                "mahnungtyp_seqnr": 11,
                 "Menge": null,
-                "MwstAbrechnungZifferId": null,
-                "MwstCodeId": null,
+                "mwstabrechnungziffer_seqnr": null,
+                "mwstcode_seqnr": null,
                 "MwstSatz": null,
                 "NkabrechnungPeriodeStichtag": null,
-                "Nummer": 2,
+                "Nr": 2,
                 "PreisProEinheit": null,
                 "VorsteuerAnteil": null
             }
@@ -147,16 +148,16 @@ Request und Response werden im JSON-Format erwartet und zurück geliefert.
     "Erfolgreich": true,
     "FehlerCode": 0,
     "FehlerMeldung": null,
-    "ImportId": 778193,
-    "BelegId": 778193,
+    "import_seqnr": 778193,
+    "beleg_seqnr": 778193,
     "BelegPostenList": [
         {
-            "Id": 36114,
-            "Nummer": 1
+            "s_seqnr": 36114,
+            "nr": 1
         },
         {
-            "Id": 36115,
-            "Nummer": 2
+            "s_seqnr": 36115,
+            "nr": 2
         }
     ]
 }
@@ -168,18 +169,18 @@ Request und Response werden im JSON-Format erwartet und zurück geliefert.
 
 ```json
 {
-    "Id": 778193,
+    "s_seqnr": 778193,
     "DmsArchivGuid": "f1234f8d81044c9a8a262c4b7d8a07b3",
     "DmsDocumentGuid": "",
     "DmsDocumentId": 1234600,
     "DmsDateiName": "dummy_2022.06.14_08_50:25.pdf",
     "DmsImportFehlerCode": null,
     "DmsImportStatusCode": 1,
-    "DmsImportStatusId": 1,
-    "DmsInsertedTs": "2022-06-14T00:00:00",
-    "DmsInsertedUser": "ASE",
-    "DmsUpdateTs": "2022-06-14T00:00:00",
-    "DmsUpdateUser": "ASE"
+    "dmsimportstatus_seqnr": 1,
+    "dmsinsts": "2022-06-14T00:00:00",
+    "dmsinsusr": "ASE",
+    "dmsupdatets": "2022-06-14T00:00:00",
+    "dmsupdateusr": "ASE"
 }
 ```
 
@@ -190,7 +191,7 @@ Request und Response werden im JSON-Format erwartet und zurück geliefert.
     "Erfolgreich": true,
     "FehlerCode": 0,
     "FehlerMeldung": null,
-    "ImportId": 778193
+    "import_seqnr": 778193
 }
 ```
 
@@ -200,18 +201,18 @@ Request und Response werden im JSON-Format erwartet und zurück geliefert.
 
 ```json
 {
-    "Id": 778193,
-    "BelegArtNummer": 1,
+    "s_seqnr": 900842,
+    "BelegArtNr": 1,
     "BelegDatum": "2022-06-14T00:00:00",
-    "BelegCodeId": 32,
+    "belegcode_seqnr": 302,
     "BelegNummer": "",
     "BenoetigtGeraetEintrag": false,
     "BenoetigtUnterhaltEintrag": false,
     "BuchungDatum": "2022-06-14T00:00:00",
     "EsrReferenzNummer": "955318100004910058518606215",
     "HatZahlungSperre": false,
-    "DmsImportId": 778193,
-    "KreditorId": 157,
+    "dmsimport_seqnr": 901121,
+    "kreditor_seqnr": 157,
     "KreditorCo": "",
     "KreditorGeschlechtNummer": null,
     "KreditorLand": "",
@@ -222,11 +223,11 @@ Request und Response werden im JSON-Format erwartet und zurück geliefert.
     "KreditorStrasse": "",
     "KreditorVorname": "",
     "KreditorZahlstelleKontoDetail": "",
-    "MandantId": 3,
+    "mand_seqnr": 3,
     "QrCodePayload": "",
     "RechnungNummer": "",
-    "ZahlstelleKreditorId": 4866,
-    "ZahlstelleMandantId": null,
+    "zahlstellekreditor_seqnr": 4866,
+    "zahlstellemandant_seqnr": null,
     "ZahlungGrund": "",
     "ZahlungKonditionFaelligkeit": 30,
     "ZahlungKonditionFaelligPerDatum": null
@@ -240,7 +241,7 @@ Request und Response werden im JSON-Format erwartet und zurück geliefert.
     "Erfolgreich": true,
     "FehlerCode": 0,
     "FehlerMeldung": null,
-    "BelegId": 778193
+    "beleg_seqnr": 778193
 }
 ```
 
@@ -250,22 +251,22 @@ Request und Response werden im JSON-Format erwartet und zurück geliefert.
 
 ```json
 {
-    "Id": 36115,
-    "BetragBrutto": 12345.25,
+    "s_seqnr": 49648,
+    "BetragBrutto": 12345.65,
     "BetragExklMwst": null,
     "BetragMwstVoll": null,
     "BuchungText": "TestImport_14.06.2022 08:50:25",
-    "DmsBelegId": 778193,
+    "dmsbeleg_seqnr": 900842,
     "FaelligkeitDatum": "2022-07-14T00:00:00",
-    "KontoId": 74,
-    "KostenstelleId": 6,
-    "MahnungTypId": 11,
+    "konto_seqnr": 74,
+    "kostenstelle_seqnr": 6,
+    "mahnungtyp_seqnr": 11,
     "Menge": null,
-    "MwstAbrechnungZifferId": null,
-    "MwstCodeId": null,
+    "mwstabrechnungziffer_seqnr": null,
+    "mwstcode_seqnr": null,
     "MwstSatz": null,
     "NkabrechnungPeriodeStichtag": null,
-    "Nummer": 2,
+    "Nr": 1,
     "PreisProEinheit": null,
     "VorsteuerAnteil": null
 }
@@ -278,13 +279,17 @@ Request und Response werden im JSON-Format erwartet und zurück geliefert.
     "Erfolgreich": true,
     "FehlerCode": 0,
     "FehlerMeldung": null,
-    "BelegPostenId": 36115
+    "belegposten_seqnr": 36115
 }
 ```
 
 ## Get Methoden
 
-In allen Get Methoden wird kein Body übergeben. Dieser Aufruf besteht nur aus dem Header und optional mit einem Param. Beispiel Aufruf: https://localhost:8080/GetDmsImportFehlerCodes
+In allen Get Methoden wird kein Body übergeben. Dieser Aufruf besteht nur aus dem Header und optional mit einem Param.
+
+Beispiel Aufruf: https://localhost:8080/GetDmsImportFehlerCodes
+
+### Views
 
 Für jede View gibt es eine passende Get Methode:
 
@@ -325,3 +330,15 @@ Für jede View gibt es eine passende Get Methode:
 | GetDmsBelegPosten                        | Tabelle DmsBelegPosten                                                                                                       |
 | GetDmsImportById                         | Aufruf: GetDmsImportById?Id=715271</br>Liefert DmsImport, DmsBeleg und DmsBelegPosten mit der angegebenen Id des DmsImports. |
 | GetDmsDokumentIndexFelderByDmsDocumentId | Aufruf: GetDmsDokumentIndexFelderByDmsDocumentId?DmsDocumentId=1000064466                                                    |
+
+### Filterung
+
+_ab Version 2.6.23_
+
+Grundsätzlich ist es möglich nach allen Spalten zu Filtern. Wenn man zum Beispiel allen Konten eines bestimmten Mandanten finden will, sieht der Aufruf so aus:
+
+http://localhost:8080/GetDmsKonto?mandant_seqnr=3
+
+Jede zusätzliche Spalte wird mit einem & verknüpft:
+
+http://localhost:8080/GetDmsKonto?mandant_seqnr=3&nebenbuchtypnr=2
