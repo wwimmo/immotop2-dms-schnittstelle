@@ -54,7 +54,7 @@ Request und Response werden im JSON-Format erwartet und zurück geliefert.
 
 ## Post Methoden
 
-### SpeichereDmsImport
+### SaveDmsImport
 
 *Request:*
 
