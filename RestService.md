@@ -74,7 +74,7 @@ Request und Response werden im JSON-Format erwartet und zurück geliefert.
         "BelegArtNr": 1,
         "BelegDatum": "2022-06-14T00:00:00",
         "belegcode_seqnr": 302,
-        "BelegNummer": "",
+        "BelegNummer": "123",
         "BenoetigtGeraetEintrag": false,
         "BenoetigtUnterhaltEintrag": false,
         "BuchungDatum": "2022-06-14T00:00:00",
