@@ -10,7 +10,8 @@ Der
     - [Versionierung](#versionierung)
     - [Meldungsformate](#meldungsformate)
   - [Post Methoden](#post-methoden)
-    - [SpeichereDmsImport](#speicheredmsimport)
+    - [Content-Type](#content-type)
+    - [SaveDmsImport](#savedmsimport)
     - [UpdateDmsImport](#updatedmsimport)
     - [UpdateDmsBeleg](#updatedmsbeleg)
     - [UpdateDmsBelegPosten](#updatedmsbelegposten)
@@ -43,10 +44,6 @@ Die REST-Services benutzen Basic Authentisierung:
 - User: wwdms
 - Passwort wird von W&W geliefert
 
-### Content-Type Post Requests
-
-- text/plain
-
 ### Versionierung
 Alle REST-Services sind versioniert, damit der ImmoTop2-Server-Service verschiedene DMS-Versionen unterstützen zu können.
 Deshalb muss Request des REST-Services der Header Version vorhanden sein:
@@ -57,6 +54,10 @@ Deshalb muss Request des REST-Services der Header Version vorhanden sein:
 Request und Response werden im JSON-Format erwartet und zurück geliefert.
 
 ## Post Methoden
+
+### Content-Type
+
+- text/plain
 
 ### SaveDmsImport
 
