@@ -43,6 +43,10 @@ Die REST-Services benutzen Basic Authentisierung:
 - User: wwdms
 - Passwort wird von W&W geliefert
 
+### Content-Type Post Requests
+
+- text/plain
+
 ### Versionierung
 Alle REST-Services sind versioniert, damit der ImmoTop2-Server-Service verschiedene DMS-Versionen unterstützen zu können.
 Deshalb muss Request des REST-Services der Header Version vorhanden sein:
