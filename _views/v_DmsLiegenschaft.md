@@ -18,3 +18,9 @@ View über alle Liegnschaften.
 | mitarbeiter        | Vorname + ' ' + Nachname                    | nvarchar |       |    N     |
 | mitarbeiter2_seqnr | Primärschlüssel Mitarbeiter 2 (Verwalter 2) | long     |    64 |    J     |
 | mitarbeiter2       | Vorname + ' ' + Nachname                    | nvarchar |       |    N     |
+| buchhalter_seqnr   | Primärschlüssel Buchhalter (Verwalter)      | long     |    64 |    J     |
+| buchhalter         | Vorname + ' ' + Nachname                    | nvarchar |       |    N     |
+| buchhalter2_seqnr  | Primärschlüssel Buchhalter 2 (Verwalter 2)  | long     |    64 |    J     |
+| buchhalter2        | Vorname + ' ' + Nachname                    | nvarchar |       |    N     |
+
+Buchhalter wurde mit der Version 2.6.25 hinzugefügt.
