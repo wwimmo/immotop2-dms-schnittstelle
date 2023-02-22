@@ -26,8 +26,8 @@ CALL "wwappl"."p_insert_DmsImport"(
     "@s_insusr" = 'wwdms', -- Benutzer welcher die DB Einträge macht
     "@dmsarchiveguid" = 'F103D065-A2DF-472B-12BB2E4006F4', -- GUID
     "@dmsdateiname" = 'Beispiel.pdf',
-    "@dmsdocumentguid" = NULL,
-    "@dmsdocumentid" = 123456789,
+    "@dmsdocumentguid" = '123456789',
+    "@dmsdocumentid" = null,   --LEGACY: sollte nicht mehr benutzt werden
     "@dmsimportfehlercode_seqnr" = NULL,
     "@dmsimportstatus_seqnr" = 1,
     "@dmsinsts" = '28-02-2022',
