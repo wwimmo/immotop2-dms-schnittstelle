@@ -1,4 +1,4 @@
-# v_DmsObjekt
+# v_DmsCode
 
 Im Gegensatz zu ImmoTop kann in ImmoTop2 ein Fachobjekt mehrere Codes beinhalten. Diese View dient dazu, die Codes eines Fachobjekts zu lesen.
 
