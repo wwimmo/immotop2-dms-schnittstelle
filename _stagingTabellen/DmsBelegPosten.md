@@ -23,3 +23,13 @@ Diese Staging-Tabelle enthält die einzelnen Belegposten je Kreditorenbeleg.
 | nr                          | Die Nummer dient zur Sortierung der Belegposten je Beleg.                                                                                                                                | int               |         J |             |
 | preisproeinheit             | Preis pro Einheit. Die Einheit ist beim Konto in der Buchhaltung hinterlegt (v_DmsKonto).                                                                                                | amount            |         J |             |
 | vorsteueranteil             | Der Vorsteueranteil wird bei teiloptierten Liegenschaften verwendet. Ist der Wert NULL, so berechnet ImmoTop2 den Vorsteueranteil selbst. Ist er abgefüllt, so wird der Wert übernommen. | decimal (9,3)     |         J |             |
+
+## MWST-Eingabeart exklusiv
+
+Wenn die Felder wie oben beschrieben abgefüllt werden, handelt es sich um einen Belegposten mit der WMST-Eingabeart "inklusiv". Für den Fall, dass man einen Belegposten mit der MWST-Eingabeart "exklusiv" erfassen will, muss man die Felder wie folgt abfüllen:
+
+- betragbrutto: Betrag exklusiv MWST
+- betragexklmwst: Betrag exklusiv MWST
+- betragmwstvoll: Der volle Steuerbetrag
+
+Der Betrag inklusiv MWST wird dann vom System berechnet.
