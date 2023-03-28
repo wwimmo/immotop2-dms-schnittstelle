@@ -2,6 +2,10 @@
 
 Diese Staging-Tabelle enthält die einzelnen Belegposten je Kreditorenbeleg.
 
+- [DmsBelegPosten](#dmsbelegposten)
+  - [Tabellendefinition](#tabellendefinition)
+  - [MWST-Eingabeart exklusiv](#mwst-eingabeart-exklusiv)
+
 ## Tabellendefinition
 
 | Name                        | Kommentar                                                                                                                                                                                | Daten-typ         | Null-able | Defaultwert |
