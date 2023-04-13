@@ -66,3 +66,5 @@ Indexwerte für indexieren der Dokumente im DMS System.
 | mahnungtyp                          | Bezeichnung Mahntyp                          | varchar  |       |    Y     |
 | zahlungsliste_seqnr                 | Fremdschlüssel Zahlungsliste                 | long     |    64 |    Y     |
 | zahlungsliste                       | Bezeichnung Zahlungsliste                    | varchar  |       |    Y     |
+| dokumentinsert                      | Insertdatum des Dokuments                    | datetime |       |    N     |
+| dokumentupdate                      | Updatedatum des Dokuments                    | datetim  |       |    N     |
