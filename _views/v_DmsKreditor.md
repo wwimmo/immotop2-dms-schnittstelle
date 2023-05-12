@@ -22,3 +22,5 @@ In dieser View werden die Kreditoren angezeigt (Personen mit Flag Kreditor). Akt
 | email          |                                                | varchar  |   500 |    J     |
 | mwstregisternr | Steuerregisternummer                           | varchar  |    30 |    N     |
 | frist1         | Vorschlag: Anzahl Tage für Zahlungskondition 1 | smallint |    16 |    N     |
+| insts          | Insert Timestamp (Ab Version 2.6.32)           | date     |       |    N     |
+| updts          | Update Timestamp (Ab Version 2.6.32)           | date     |       |    N     |

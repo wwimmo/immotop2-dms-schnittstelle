@@ -12,3 +12,5 @@ Für Vorsteueranteil zum Kostenkonto. Falls keine Vorsteueranteil in der Staging
 | gueltigvon         | Von kostengruppemandant bzw. kostengruppelggruppe | date     |       |    N     |
 | gueltigbis         |                                                   | date     |       |    J     |
 | prioritaet         | 1 = hoch (lggruppe), 2 = tief                     |          |       |          |
+| insts              | Insert Timestamp (Ab Version 2.6.32)              | date     |       |    N     |
+| updts              | Update Timestamp (Ab Version 2.6.32)              | date     |       |    N     |

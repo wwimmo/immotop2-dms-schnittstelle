@@ -10,3 +10,5 @@ Diese View zeigt, welche Kostenstellen bei welchem Konto zulässig sind. Die Gü
 | kostenstelle_seqnr | Eine der passenden Kostenstellen zum Konto. | bigint   |    64 |    N     |
 | gueltigvon         | Gültig-von-Datum der Kostenstelle.          | date     |       |    N     |
 | gueltigbis         | Gültig-bis-Datum der Kostenstelle.          | date     |       |    J     |
+| insts              | Insert Timestamp (Ab Version 2.6.32)        | date     |       |    N     |
+| updts              | Update Timestamp (Ab Version 2.6.32)        | date     |       |    N     |

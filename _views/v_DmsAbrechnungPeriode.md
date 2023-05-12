@@ -17,3 +17,5 @@ Im Detail heisst das: Von der Kostenstelle gelangen wir über das Feld liegensch
 | gueltigvon                          | Gültig-von-Datum der Abrechnungsperiode                                                            | date     |       |    N     |
 | gueltigbis                          | Gültig-bis-Datum der Abrechnungsperiode                                                            | date     |       |    J     |
 | abrechnungstatusnr                  | 1 = nicht aufgerechnet, 2 = aufgerechnet, 3 = abgeschlossen                                        | int      |    32 |    N     |
+| insts                               | Insert Timestamp (Ab Version 2.6.32)                                                               | date     |       |    N     |
+| updts                               | Update Timestamp (Ab Version 2.6.32)                                                               | date     |       |    N     |

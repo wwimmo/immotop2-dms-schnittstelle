@@ -25,3 +25,5 @@ Alle Informationen zur Kostenstelle.
 | strasse                              |                                                             | varchar  |       |    J     |
 | land                                 | schweiz                                                     | varchar  |    20 |    J     |
 | kanton                               | zh                                                          | varchar  |     2 |    J     |
+| insts                                | Insert Timestamp (Ab Version 2.6.32)                        | date     |       |    N     |
+| updts                                | Update Timestamp (Ab Version 2.6.32)                        | date     |       |    N     |

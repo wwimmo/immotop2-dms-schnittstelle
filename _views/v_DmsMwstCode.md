@@ -11,3 +11,5 @@ Kein gueltigVon, solange nicht Wert gebraucht wird.
 | mandant_seqnr   |                                                                                               | long     |    64 |    N     |
 | s_seqnr         | Der Primärschlüssel                                                                           | long     |    64 |    N     |
 | mwstsatz_seqnr  | Fremdschlüssel zum MwstSatz                                                                   | long     |    64 |    N     |
+| insts           | Insert Timestamp (Ab Version 2.6.32)                                                          | date     |       |    N     |
+| updts           | Update Timestamp (Ab Version 2.6.32)                                                          | date     |       |    N     |

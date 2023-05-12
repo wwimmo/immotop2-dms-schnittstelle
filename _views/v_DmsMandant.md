@@ -22,3 +22,5 @@ In dieser View werden die Informationen des Mandanten angezeigt.
 | istmwstpflichtig | *                                                 | smallint |    16 |    J     |
 | gueltigvon       |                                                   | date     |       |    N     |
 | gueltigbis       |                                                   | date     |       |    J     |
+| insts            | Insert Timestamp (Ab Version 2.6.32)              | date     |       |    N     |
+| updts            | Update Timestamp (Ab Version 2.6.32)              | date     |       |    N     |

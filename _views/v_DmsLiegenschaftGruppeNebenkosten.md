@@ -12,3 +12,5 @@ View über alle Liegnschaftengruppenebenkosten.
 | mandant_seqnr      | Primärschlüssel des Mandanten                   | long     |    64 |    N     |
 | mandant_nr         | Nummer des Mandanten                            | int      |    32 |    N     |
 | kostenstelle_seqnr | Primärschlüssel der dazugehörigen Kosten-stelle | long     |    64 |    J     |
+| insts              | Insert Timestamp (Ab Version 2.6.32)            | date     |       |    N     |
+| updts              | Update Timestamp (Ab Version 2.6.32)            | date     |       |    N     |

@@ -12,3 +12,5 @@ In dieser View sind die Mahnungstypen definiert.
 | verwendungvermietung        | Wird beim Vermietungsmandanten verwendet.     | smallint |    16 |    N     |
 | verwendunggenossenschaft    | Wird beim Genossenschaftsmandanten verwendet. | smallint |    16 |    N     |
 | verwendungstockwerkeigentum | Wird beim STWEG-Mandanten verwendet.          | smallint |    16 |    N     |
+| insts                       | Insert Timestamp (Ab Version 2.6.32)          | date     |       |    N     |
+| updts                       | Update Timestamp (Ab Version 2.6.32)          | date     |       |    N     |

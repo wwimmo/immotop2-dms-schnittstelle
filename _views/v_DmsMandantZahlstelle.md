@@ -19,3 +19,5 @@ Hier erscheinen alle Zahlstellen zum Mandanten. Der passende Eintrag kann via ma
 | kontonr          | Kontonummer der Zahlstelle, respektive QR-Iban | varchar  |    40 |    N     |
 | zahlstelletypbez | *                                              | varchar  |   100 |    N     |
 | zahlstelletypnr  | *                                              | int      |    32 |    N     |
+| insts            | Insert Timestamp (Ab Version 2.6.32)           | date     |       |    N     |
+| updts            | Update Timestamp (Ab Version 2.6.32)           | date     |       |    N     |

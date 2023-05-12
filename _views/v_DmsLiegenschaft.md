@@ -22,5 +22,7 @@ View über alle Liegnschaften.
 | buchhalter         | Vorname + ' ' + Nachname                    | nvarchar |       |    N     |
 | buchhalter2_seqnr  | Primärschlüssel Buchhalter 2 (Verwalter 2)  | long     |    64 |    J     |
 | buchhalter2        | Vorname + ' ' + Nachname                    | nvarchar |       |    N     |
+| insts              | Insert Timestamp (Ab Version 2.6.32)        | date     |       |    N     |
+| updts              | Update Timestamp (Ab Version 2.6.32)        | date     |       |    N     |
 
 Buchhalter wurde mit der Version 2.6.25 hinzugefügt.
