@@ -11,6 +11,9 @@ Es werden zwei Staging-Verzeichnisse benötigt:
 Die Steuerdatei enthält Metadaten eines Dokuments und Steuer-Anweisungen. Sie:
 - hat XML-Format
 - wird erst nach dem Dokument in das Stagingverzeichnis geschrieben
+  (verhindert, dass XML-Dateien ohne passende Daten-Datei verarbeitet werden)
+- soll zuerst vollständig in ein temporäres Verzeichnis geschrieben udn erst dann ins Staging-Verzeichnis "gemoved" werden
+  (verhindert, dass ImmoTop2 unvollständig geschriebene XML-Dateien verarbeitet)
 
 ### Namengebung der Steuerdateien
 Die eindeutigen Namen des Dokumentes und der Steuerdatei müssen sich entsprechen., dh. Namen der beiden Dateien unterscheiden sich nur im Filesuffix. 
@@ -30,7 +33,7 @@ Möglicher Inhalt eines Stagingverzeichnisses:<br>
 |                          | ReplaceDocument | Wird nicht implementiert, es muss DeleteDocument/NewDocument benutzt werden.<br>Damit ist die Dokumentensynchronisation mit dem Portal einfach möglich. |
 | DmsArchivId              | Text            | Eindeutige ID des Archivs, in dem das Doku-ment gespeichert wird<br>Dient dem ArchivMapping beim Kreditoren-Workflow  |
 | DmsDocumentId            | Text            | Eindeutige ID eines Dokuments im DMS<br>Wird für die Visualisierung der Dokumente via DMS-DocumentViewer benötigt.  |
-| DocumentId               | Text            | Eindeutige ID eines Dokuments in ImmoTop2<br>Primärschlüssel des Dokuments, der für die REST- oder Datenabnkschnittstelle benutzt werden kann.  |
+| DocumentId               | Text            | Eindeutige ID eines Dokuments in ImmoTop2<br>Primärschlüssel des Dokuments, der für die REST- oder Datenbankschnittstelle benutzt werden kann.  |
 | DateiName                | Text            | Sprechender Dateiname   |
 
 ### Beispiele von Steuerdateien
