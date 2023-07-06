@@ -8,6 +8,7 @@ View über alle Liegnschaften.
 | :----------------- | :------------------------------------------ | :------- | ----: | :------: |
 | s_seqnr            | Der Primärschlüssel                         | long     |    64 |    N     |
 | nr                 | Nummer der Liegenschaft                     | int      |    32 |    N     |
+| bez                | Bezeichnung                                 | nvarchar |       |    N     |
 | mandant_seqnr      | Primärschlüssel des Mandanten               | long     |    64 |    N     |
 | mandant_nr         | Nummer des Mandanten                        | int      |    32 |    N     |
 | lieggruppenk_seqnr | Primärschlüssel Liegenschaftengruppe NK     | long     |    64 |    J     |
@@ -26,3 +27,4 @@ View über alle Liegnschaften.
 | updts              | Update Timestamp (Ab Version 2.6.32)        | date     |       |    N     |
 
 Buchhalter wurde mit der Version 2.6.25 hinzugefügt.
+Bezeichnung wurde mit der Version 2.6.35 hinzugefügt.
