@@ -26,5 +26,5 @@ View über alle Liegnschaften.
 | insts              | Insert Timestamp (Ab Version 2.6.32)        | date     |       |    N     |
 | updts              | Update Timestamp (Ab Version 2.6.32)        | date     |       |    N     |
 
-Buchhalter wurde mit der Version 2.6.25 hinzugefügt.
-Bezeichnung wurde mit der Version 2.6.35 hinzugefügt.
+- Buchhalter wurde mit der Version 2.6.25 hinzugefügt.
+- Bezeichnung wurde mit der Version 2.6.35 hinzugefügt.
