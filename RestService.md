@@ -272,6 +272,7 @@ Request und Response werden im JSON-Format erwartet und zurück geliefert.
     "mwstabrechnungziffer_seqnr": null,
     "mwstcode_seqnr": null,
     "MwstSatz": null,
+    "MwstSatzDatum": null,
     "NkabrechnungPeriodeStichtag": null,
     "Nr": 1,
     "PreisProEinheit": null,
