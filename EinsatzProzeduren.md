@@ -92,6 +92,7 @@ CALL "wwappl"."p_insert_DmsBelegPosten"(
     "@mwstabrechnungziffer_seqnr" = 1,
     "@mwstcode_seqnr" = NULL,
     "@mwstsatz" = 7.60,
+    "@mwstsatzdatum" = NULL,
     "@nkabrechnungperiodestichtag" = NULL,
     "@nr" = 1,
     "@preisproeinheit" = NULL,
