@@ -111,6 +111,7 @@ Request und Response werden im JSON-Format erwartet und zurück geliefert.
                 "BetragMwstVoll": null,
                 "BuchungText": "TestImport_14.06.2022 08:50:25",
                 "FaelligkeitDatum": "2022-07-14T00:00:00",
+                "geraet_seqnr": null,
                 "konto_seqnr": 74,
                 "kostenstelle_seqnr": 6,
                 "mahnungtyp_seqnr": 11,
@@ -122,6 +123,7 @@ Request und Response werden im JSON-Format erwartet und zurück geliefert.
                 "NkabrechnungPeriodeStichtag": null,
                 "Nr": 1,
                 "PreisProEinheit": null,
+                "unterhalt_seqnr": null,
                 "VorsteuerAnteil": null
             },
             {
@@ -130,6 +132,7 @@ Request und Response werden im JSON-Format erwartet und zurück geliefert.
                 "BetragMwstVoll": null,
                 "BuchungText": "TestImport_14.06.2022 08:50:25",
                 "FaelligkeitDatum": "2022-07-14T00:00:00",
+                "geraet_seqnr": null,
                 "konto_seqnr": 74,
                 "kostenstelle_seqnr": 6,
                 "mahnungtyp_seqnr": 11,
@@ -141,6 +144,7 @@ Request und Response werden im JSON-Format erwartet und zurück geliefert.
                 "NkabrechnungPeriodeStichtag": null,
                 "Nr": 2,
                 "PreisProEinheit": null,
+                "unterhalt_seqnr": null,
                 "VorsteuerAnteil": null
             }
         ]
@@ -265,6 +269,7 @@ Request und Response werden im JSON-Format erwartet und zurück geliefert.
     "BuchungText": "TestImport_14.06.2022 08:50:25",
     "dmsbeleg_seqnr": 900842,
     "FaelligkeitDatum": "2022-07-14T00:00:00",
+    "geraet_seqnr": null,
     "konto_seqnr": 74,
     "kostenstelle_seqnr": 6,
     "mahnungtyp_seqnr": 11,
@@ -276,6 +281,7 @@ Request und Response werden im JSON-Format erwartet und zurück geliefert.
     "NkabrechnungPeriodeStichtag": null,
     "Nr": 1,
     "PreisProEinheit": null,
+    "unterhalt_seqnr": null,
     "VorsteuerAnteil": null
 }
 ```

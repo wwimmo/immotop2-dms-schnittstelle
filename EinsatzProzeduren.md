@@ -85,6 +85,7 @@ CALL "wwappl"."p_insert_DmsBelegPosten"(
     "@buchungtext" = 'Swisscom, März',
     "@dmsbeleg_seqnr" = 778197, -- FK auf die Tabelle DmsBeleg
     "@faelligkeitdatum" = '30-03-2022',
+    "@geraet_seqnr" = NULL,
     "@konto_seqnr" = 47515,
     "@kostenstelle_seqnr" = NULL,
     "@mahnungtyp_seqnr" = 11,
@@ -96,6 +97,7 @@ CALL "wwappl"."p_insert_DmsBelegPosten"(
     "@nkabrechnungperiodestichtag" = NULL,
     "@nr" = 1,
     "@preisproeinheit" = NULL,
+    "@unterhalt_seqnr" = NULL,
     "@vorsteueranteil" = NULL
 )
 ```
@@ -159,6 +161,7 @@ CALL "wwappl"."p_update_DmsBelegPosten"(
     "@betragbrutto" = 430.75,
     …
     "@preisproeinheit" = NULL,
+    "@unterhalt_seqnr" = NULL,
     "@vorsteueranteil" = NULL
 )
 ```

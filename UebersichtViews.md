@@ -41,3 +41,9 @@ Die nachfolgenden Views dienen der Workflow Engine des DMS dazu, die zulässigen
 | [v_DmsZahlungposten](_views/v_DmsZahlungposten.md)                                 | Informationen zu den Zahlungen                              |
 | [v_DmsBelegzahlungAngaben](_views/v_DmsBelegzahlungAngaben.md)                     | Angaben zu den Belegzahlungen                               |
 | [v_DmsDokumentIndexFelder](_views/v_DmsDokumentIndexFelder.md)                     | Indexfelder für DMS                                         |
+| [v_DmsGeraet](_views/v_DmsGeraet.md)                                               | Informationen zu den Geräten                                |
+| [v_DmsGeraetTyp](_views/v_DmsGeraetTyp.md)                                         | Informationen zu den Gerätetypen                            |
+| [v_DmsAnlageTechnisch](_views/v_DmsAnlageTechnisch.md)                             | Informationen zu den technischen Anlagen                    |
+| [v_DmsBkphElement](_views/v_DmsBkphElement.md)                                     | Informationen zu den BKP-H-Elementen                        |
+| [v_DmsBkphElementGruppe](_views/v_DmsBkphElementGruppe.md)                         | Informationen zu den BKP-H-Elementen Gruppen                |
+| [v_DmsUnterhalt](_views/v_DmsUnterhalt.md)                                         | Informationen zu den Unterhalten                            |
