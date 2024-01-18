@@ -339,6 +339,8 @@ Für jede View gibt es eine passende Get Methode:
 | GetDmsMitarbeiter                        | v_DmsMitarbeiter                                                                                                             |
 | GetDmsBelegzahlungAngaben                | v_DmsBelegzahlungAngaben                                                                                                     |
 | GetDmsZahlungposten                      | v_DmsZahlungposten                                                                                                           |
+| GetDmsGeraet                             | v_DmsGeraet                                                                                                                  |
+| GetDmsUnterhalt                          | v_DmsUnterhalt                                                                                                               |
 | GetDmsImport                             | Tabelle DmsImport                                                                                                            |
 | GetDmsBeleg                              | Tabelle DmsBeleg                                                                                                             |
 | GetDmsBelegPosten                        | Tabelle DmsBelegPosten                                                                                                       |
