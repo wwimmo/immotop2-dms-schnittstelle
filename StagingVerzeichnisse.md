@@ -38,7 +38,7 @@ Möglicher Inhalt eines Stagingverzeichnisses:<br>
 | DocumentId               | Text            | Eindeutige ID eines Dokuments in ImmoTop2<br>Primärschlüssel des Dokuments, der für die REST- oder Datenbankschnittstelle benutzt werden kann.  |
 | DateiName                | Text            | Sprechender Dateiname   |
 | ClientName               | Text            | Name des PC, auf dem der ImmoTop2-Client läuft (wird für "DownloadDocument" benötigt -> UseCase8)    |
-| FehlerText               | Text            | Falls es bei der Verarbeitung im DMS ein Problem gab (zB Dokument existiert nicht mehr). Der Fehlertext soll so formuliert werden, dass er von einem Eddbenutzer verstanden wird   |
+| FehlerText               | Text            | Falls es bei der Verarbeitung im DMS ein Problem gab (zB Dokument existiert nicht mehr). Der Fehlertext soll so formuliert werden, dass er von einem Endbenutzer verstanden wird   |
 
 ### Beispiele von Steuerdateien
 
@@ -139,7 +139,7 @@ Dieser UseCase wird (noch) nicht benötigt.
 
 Bemerkung: In UseCase5 bleibt das Dokument im externen DMS gespeichert
 
-## UseCase 8: ImmoTop2 downloaded Dokumente aus dem externen DMS (neu seit Januar 2024)
+## UseCase 8: ImmoTop2 downloaded Dokumente aus dem externen DMS (neu ab ImmoTop2-Version 2.7)
 ImmoTop2 downloaded Dokumente aus dem externen DMS-Archiv, dh das Dokument bleibt im externen DMS gespeichert.<br>
 Konkreter UseCase: Buchhaltungsbelege werden für die Revision exportiert.<br>
 <br>
