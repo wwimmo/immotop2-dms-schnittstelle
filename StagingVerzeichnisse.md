@@ -38,7 +38,7 @@ Möglicher Inhalt eines Stagingverzeichnisses:<br>
 | DocumentId               | Text            | Eindeutige ID eines Dokuments in ImmoTop2<br>Primärschlüssel des Dokuments, der für die REST- oder Datenbankschnittstelle benutzt werden kann.  |
 | DateiName                | Text            | Sprechender Dateiname   |
 | ClientName               | Text            | Name des PC, auf dem der ImmoTop2-Client läuft (wird für "DownloadDocument" benötigt -> UseCase8)    |
-| FehlerText               | Text            | Falls es bei der Verabeitung im DMS ein Problem gab (zB Dokument existiert nicht mehr)   |
+| FehlerText               | Text            | Falls es bei der Verarbeitung im DMS ein Problem gab (zB Dokument existiert nicht mehr). Der Fehlertext soll so formuliert werden, dass er von einem Eddbenutzer verstanden wird   |
 
 ### Beispiele von Steuerdateien
 
