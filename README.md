@@ -19,9 +19,10 @@ Dieses Dokument richtet sich an DMS Hersteller und Implementationspartner. Es en
 
 ## Generelles
 -	Ein Dokument existiert in ImmoTop2 nur ein einziges Mal.</br>(entweder im ImmoTop2-internen Archiv oder im externen Archiv eines DMS)
--	Master für die Indexwerte der Dokumente ist ImmoTop2.
+-	Master für die Indexwerte der Dokumente ist ImmoTop2.</br>
+(nur die in ImmoTop2 gespeicherten Indexwerte sind für ImmoTop2 relevant, ImmoTop2 entscheidet den Speicherort des Dokumentes)
 -	Das DMS ermöglicht das Visualisieren von Dokumenten durch Aufruf einer URL mit der DokumentenID als Platzhalter
--	Dokumente werden immer über eine eindeutige DocID identifiziert
+-	Dokumente werden immer über eine eindeutige DocID identifiziert, die ImmoTop2 geliefert werden muss nach dem Speichern des Dokumentes im externen DMS
 
 ## Schnittstellen
 
