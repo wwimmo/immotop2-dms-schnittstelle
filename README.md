@@ -20,7 +20,7 @@ Dieses Dokument richtet sich an DMS Hersteller und Implementationspartner. Es en
 ## Generelles
 -	Ein Dokument existiert in ImmoTop2 nur ein einziges Mal.</br>(entweder im ImmoTop2-internen Archiv oder im externen Archiv eines DMS)
 -	Master für die Indexwerte der Dokumente ist ImmoTop2.</br>
-(nur die in ImmoTop2 gespeicherten Indexwerte sind für ImmoTop2 relevant, ImmoTop2 entscheidet den Speicherort des Dokumentes)
+(nur die in ImmoTop2 gespeicherten Indexwerte sind für ImmoTop2 relevant. ImmoTop2 definiert, wo das Dokument gespeichert ist.)
 -	Das DMS ermöglicht das Visualisieren von Dokumenten durch Aufruf einer URL mit der DokumentenID als Platzhalter
 -	Dokumente werden immer über eine eindeutige DocID identifiziert, die ImmoTop2 geliefert werden muss nach dem Speichern des Dokumentes im externen DMS
 
@@ -31,11 +31,17 @@ Dieses Dokument richtet sich an DMS Hersteller und Implementationspartner. Es en
 Die ImmoTop2-Schnittstellen ermöglichen den DMS:
 - lesende und schreibende Zugriffe via <b>[REST-Services](RestService.md)</b>
 - lesende Zugriffe via [DatenbankViews](UebersichtViews.md) und schreibende Zugriffe via [Stored-Procedures](EinsatzProzeduren.md) über eine direkte <b>Datenbank-Schnittstelle</b> 
-- ausführen von Commands (zB Lösche Dokument 123) über Steuerdateien in <b>[Staging-Verzeichnissen](StagingVerzeichnisse.md)</b>
+- Dokumente zwischen dem DMS und ImmoTop2 transportieren oder ausführen von Commands (zB Lösche Dokument 123) über Steuerdateien in <b>[Staging-Verzeichnissen](StagingVerzeichnisse.md)</b>
 
 ## Daten lesen und schreiben in ImmoTop2
 
+### REST-Services
+
+REST-Services sind die bevorzugte Schnittstelle.
+Die Verwendung der REST-Services wird in diesem Dokument beschrieben: [REST-Services](RestService.md)
+
 ### Datenbank-Schnittstelle
+Für die Datenbank-Schnittstelle muss eine direkte Netzwerkverbindung vom DMS zur ImmoTop2-Datenbank existieren.
 ImmoTop 2 stellt Stammdaten den DMS in [Views](UebersichtViews.md) zur Verfügung.
 
 Das DMS erhält einen Benutzer für lesenden und schreibenden Zugriff. Die Verbindung auf die [Views](UebersichtViews.md) oder [DB Prozeduren](EinsatzProzeduren.md) erfolgt mittels ODBC, zusätzlich denkbar wäre auch eine Verbindung mittels ADO.Net, OLE.DB. Alternativ stehen auch noch [REST-Services](RestService.md) zur Verfügung.
@@ -57,9 +63,6 @@ Details zu den Staging Tabellen sind hier dokumentiert:
 - [DmsBeleg](_stagingTabellen/DmsBeleg.md)
 - [DmsBelegPosten](_stagingTabellen/DmsBelegPosten.md)
 
-### REST-Services
-
-Die Verwendung der REST-Services wird in diesem Dokument beschrieben: [REST-Services](RestService.md)
 
 
 ## Ablauf Kreditorenworkflow
