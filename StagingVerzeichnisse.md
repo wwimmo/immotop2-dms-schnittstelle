@@ -1,4 +1,5 @@
 # Dokumenten-Schnittstelle via Staging-Verzeichnisse
+Über diese Schnittstelle werden Dokumente zwischen dem DMS und ImmoTop2 verschoben (zB Benutzer speichert aus ImmoTop2 ein neues Dokument im externen DMS, Benutzer löscht ein Dokument im externen DMS,....).</br>
 Die Staging-Verzeichnisse werden als einheitliche Lowtech-Schnittstelle für die Kommunikation zwischen ImmoTop2 und verschiedenen DMS-Produkten genutzt.
 Es werden zwei Staging-Verzeichnisse benötigt:
 - Stagingverzeichnis1: Steuerdateien und evtl. Dokumente von ImmoTop2 an das DMS
@@ -12,12 +13,12 @@ Die Steuerdatei enthält Metadaten eines Dokuments und Steuer-Anweisungen. Sie:
 - hat XML-Format
 - wird erst nach dem Dokument in das Stagingverzeichnis geschrieben
   (verhindert, dass XML-Dateien ohne passende Daten-Datei verarbeitet werden)
-- soll zuerst vollständig in ein temporäres Verzeichnis geschrieben udn erst dann ins Staging-Verzeichnis "gemoved" werden
+- soll zuerst vollständig in ein temporäres Verzeichnis geschrieben und erst dann ins Staging-Verzeichnis "gemoved" werden
   (verhindert, dass ImmoTop2 unvollständig geschriebene XML-Dateien verarbeitet)
 
 ### Namengebung der Steuerdateien
-Die eindeutigen Namen des Dokumentes und der Steuerdatei müssen sich entsprechen., dh. Namen der beiden Dateien unterscheiden sich nur im Filesuffix. 
-Damit auch XML-Dateien zwischen den beiden Software-Systemen ausgetauscht werden können, hat die XML-Steuerdatei den proprietären FileSuffix «xml_it2».
+Die eindeutigen Namen des Dokumentes und der Steuerdatei müssen sich entsprechen, dh. Namen der beiden Dateien unterscheiden sich nur im Filesuffix. 
+Damit auch XML-Dateien zwischen den beiden Software-Systemen ausgetauscht werden können, hat die XML-Steuerdatei den proprietären FileSuffix «.xml_it2».
 
 Möglicher Inhalt eines Stagingverzeichnisses:<br>
 <img src="./_images/Stagingverzeichnis.png" alt="Möglicher Inhalt eines Stagingverzeichnisses" style="float:left; margin-right:10px;" />
@@ -50,7 +51,7 @@ Möglicher Inhalt eines Stagingverzeichnisses:<br>
 </ControlFile>
 ```
 
-#### Beispiel2: Das DMS teilt ImmoTop2 Informationen zum gespeicherten Dokument mit:
+#### Beispiel2: Das DMS liefert ImmoTop2 Informationen zu einem neu im DMS gespeicherten Dokument:
 ```
 <?xml version="1.0" encoding="utf-8"?>
 <ControlFile>
@@ -88,7 +89,7 @@ Die im URL des Archivs hinterlegten Platzhalter «%DocId%» und «%ArchivId%» w
 Danach wird der Standardbrowser gestartet und das Dokument über den DMS-DocumentViewer im Browser geöffnet.<br>
 Der im Browser gestartete DMS-Documentviewer ermöglicht dann den Download, das Drucken,... eines Dokumentes. 
 
-## UseCase3: ImmoTop2 will ein Dokument im DMS löschen
+## UseCase3: ImmoTop2 löscht ein Dokument im externen DMS
 Ein Benutzer hat sich entschieden, ein Dokument zu löschen.
 ImmoTop2 weiss anhand der Konfigurationsdaten, dass das zu löschende Dokument in einem externen Archiv gespeichert ist.
 
@@ -98,41 +99,47 @@ Ablauf:
 - Das DMS löscht das Dokument im Archiv anhand des XML-Elementes "DmsDocumentId"
 - Das DMS löscht die Steuerdatei im Stagingfolder1
 
-## UseCase4: Das DMS liest die ImmoTop2-Indexwerte eines oder mehrerer Dokumente
-Wenn das DMS neben der ImmoTop2-DocId zusätzlich auch noch weitere Indexwerte (=Dokument-Metadaten) in numerischer und/oder in Textform benötigt (zB Name eines Mandanten). <br>
-Das <b>Synchronisieren der Indexwerte muss im externen DMS periodisch ausgeführt</b> werden, denn Indexwerte können in ImmoTop2 jederzeit ändern (zB Name einer Liegenschaft)
+## UseCase4: Re-Synchronisieren von ImmoTop2-Indexwerten im  externen DMS
+Nur notwendig, wenn das DMS neben der ImmoTop2-DocId zusätzlich auch noch weitere ImmoTop2-Indexwerte (=Dokument-Metadaten) in numerischer und/oder in Textform benutzt (zB Name eines Mandanten). Es ist möglich, das Indexwerte in ImmoTop2 ändern (zB Namensänderung eines Mieters).<br>
+<b>Deshalb müssen ImmoTop2-Indexwerte im externen DMS periodisch mit ImmoTop2 re-synchronisiert werden</b> (ImmoTop2 ist der Master der ImmoTop2-Indexwerte).
 
 ImmoTop2 liefert beim Schreiben eines Dokumentes den Primärschlüssel (XML-Element "DocumentId").
 Anhand dieses Primärschlüssels kann das DMS weitere Indexwerte eines Dokumentes anhand der View "[v_DmsDokumentIndexFelder](_views/v_DmsDokumentIndexFelder.md)" oder des [REST-Service](RestService.md) "GetDmsDokumentIndexFelderByDmsDocumentId" lesen.<b>
 Für praktisch alle DB-Views existieren als Alternative auch ImmoTop2-REST-Services</b>.
 
 Sollten diese Indexwerte nicht alle gewünschten Daten enthalten, können mit weiteren REST-Services oder DB-Views zusätzliche Daten aus ImmoTop2 gelesen werden.
-So liefert zB die View "v_DmsMandant" den Namen, den Typ,… des Mandanten.
+So liefert zB die View "v_DmsMandant" den Namen, den Typ,... des Mandanten.
 
-## UseCase5: ImmoTop2 integriert DMS Dokumente (noch nicht implementiert)
-Dokumente, die in einem DM gespeichert sind, sollen in ImmoTop2 "sichtbar gemacht" werden.
+## UseCase5: ImmoTop2 verlinkt Dokumente, die im externen DMS gespeichert wurden (noch nicht implementiert)
+Dokumente, die bereits im DMS gespeichert sind, sollen in ImmoTop2 integriert werden.<br>Das Dokument bleibt im externen DMS gespeichert. In immoTop2 werden die Indexwerte und eine Verlinkung auf das extern gespeciherte Dokument geschrieben.
 
-Bemerkung: Dieser Usecase wurde nur für Kreditorenbelege bereits via Kreditoren-Workflow bereits realisiert.
-Für alle weiteren Dokumentarten müsste ein analoger Ablauf neu programmiert werden.<br>
+Bemerkung: Dieser Usecase wurde nur für Kreditorenbelege via Kreditoren-Workflow bereits realisiert.
+Für alle weiteren Dokumentarten muss ein analoger Ablauf neu programmiert werden.<br>
 
 Weil ImmoTop2 der Master für die Indexwerte ist und relativ komplexe Regeln für die Dokumenten-Indexierung hat,<br> 
 müssen beim Laden auch eines extern gespeicherten Dokumentes die Indexwerte in ImmoTop2 gesetzt werden.<br>
-Diese Indexierung muss für beliebige Dokumentarten deshalb manuell gemacht werden.
+Diese Indexierung muss für beliebige Dokumentarten deshalb manuell in ImmoTop2 gemacht werden, damit die Indexierungsregeln konsistent angewandt bleiben.
 
 Ablauf:
 - Das DMS schreibt eine Steuerdatei in Stagingfolder2
-- ImmoTop2-Benutzer erfahren irgendwie von diesen Dokumenten und starten dann die manuelle Indexierung
+- ImmoTop2-Benutzer erfahren von diesen Dokumenten und starten dann die manuelle Indexierung
 
 <img src="./_images/UseCase5.png" alt="UseCase2" style="float:left; margin-right:10px;" />
 
-## UseCase6: DMS lädt Dokumente aus ImmoTop2 (noch nicht implementiert)
-Das DMS will Dokumente aus dem internen ImmoTop2-Archiv übernehmen (ImmoTop2-Export).<br>
+## UseCase6: Dokumente werden aus ImmoTop2 ins externe DMS verschoben (noch nicht implementiert)
+Das DMS will Dokumente aus dem internen ImmoTop2-Archiv übernehmen (ImmoTop2-Export), dh das Dokument wird verschoben.<br>
 Dieser UseCase wird (noch) nicht benötigt. 
 
-## UseCase7: ImmoTop2 lädt Dokumente aus dem externen DMS (noch nicht implementiert)
-ImmoTop2 will Dokumente aus dem externen DMS-Archiv übernehmen (ImmoTop2-Import).<br>
+## UseCase7: Dokumente werden aus dem externen DMS nach ImmoTop2 verschoben (noch nicht implementiert)
+ImmoTop2 will Dokumente aus dem externen DMS-Archiv übernehmen (ImmoTop2-Import), dh das Dokument wird verschoben.<br>
 Dieser UseCase wird (noch) nicht benötigt. 
 
 Bemerkung: In UseCase5 bleibt das Dokument im externen DMS gespeichert
+
+## UseCase8: ImmoTop2 downloaded Dokumente aus dem externen DMS (neu seit Januar 2024)
+ImmoTop2 downloaded Dokumente aus dem externen DMS-Archiv, dh das Dokument bleibt im externen DMS gespeichert.<br>
+Konkreter UseCase: Buchhaltungsbelege werden für die Revision exportiert.<br>
+<br>
+Die Details werden zurzeit ausgearbeitet.<br>
 
 
