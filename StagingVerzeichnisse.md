@@ -37,7 +37,7 @@ Möglicher Inhalt eines Stagingverzeichnisses:<br>
 | DmsDocumentId            | Text            | Eindeutige ID eines Dokuments im DMS<br>Wird immoTop2 mitgeteilt mit der Steuerdatei vom Typ "SavedDocument"<br>Sie wird für die Visualisierung der Dokumente via DMS-DocumentViewer oder "DownloadDocument" benötigt.  |
 | DocumentId               | Text            | Eindeutige ID eines Dokuments in ImmoTop2<br>Primärschlüssel des Dokuments, der für die REST- oder Datenbankschnittstelle benutzt werden kann.  |
 | DateiName                | Text            | Sprechender Dateiname   |
-| ClientName               | Text            | Name des PC, auf dem der ImmoTop2-Client läuft (wird für "DownloadDocument" benötigt -> UseCase8)    |
+| RueckgabeVerzeichnis     | Text            | Name des Subverzeichnisses im StagingFolder1, in welches das im DMS gelesene Dokument geschrieben werden muss<br>(wird für UseCase8 "DownloadDocument" benötigt)    |
 | FehlerText               | Text            | Falls es bei der Verarbeitung im DMS ein Problem gab (zB Dokument existiert nicht mehr). Der Fehlertext soll so formuliert werden, dass er von einem Endbenutzer verstanden wird   |
 
 ### Beispiele von Steuerdateien
@@ -149,12 +149,12 @@ Herausforderungen:<br>
 - Damit bei einer Mehrplatzinstallation die DMS-Antworten nicht konkurrenzierend verarbeitet werden, erhält jeder Client ein eigenes Subverzeichnis im StagingFolder1 mit dem Namen des Client und dem Namen des Windows-Benutzers (relevant bei Terminalserver-Installationen)<br>
 <br><br>
 Ablauf:
-- Der ImmoTop2-Client stellt sicher, dass im StagingFolder1 ein Sub-Verzeichnis mit dem Namen der "Client-Workstation+Windows-Benutzer" existiert<br>
-- Der ImmoTop2-Client schreibt wie bei allen anderen UseCase eine Steuerdatei (Typ "DownloadDocument") in den StagingFolder1<br>Geliefert werden die XML-Attribute DmsArchivId, DmsDocumentId, DateiName und ClientName.<br>
-- das externe DMS liest diese Steuerdatei und schreibt die verlangte Datei im StagingFolder1 mit einem eindeutigen Namen in das Subverzeichnis der "Workstation+Benutzer"  (der Name des Subverzeichnisses befindet sich in den von ImmoTop2 gelieferten XML-Metadaten)<br>
-- danach schreibt das externe DMS eine Steuerdatei ebenfalls vom Typ "DownloadDocument" in dasselbe Subverzeichnis des StagingFolder1<br>Geliefert werden muss nur das XML-Attribut "DateiName"
-- falls im DMS ein Verarbeitungsfehler auftritt (zB Datei wurde gelöscht), wird der Fehler benutzerverständlich ins XML-Attribut "Fehlertext" geschrieben<br>
-- der ImmoTop2-Client entdeckt diese Steuerdatei im Workstation-Folder des StagingFolder1 über einen FileListener und schreibt die Datei mit dem NAmen "DAteiName" direkt ins Exportverzeichnis<br>
+- Der ImmoTop2-Client stellt sicher, dass im StagingFolder1 ein Sub-Verzeichnis mit dem Namen der "RueckgabeVerzeichnis" (Name des Client + Name des WindowsBenutzers) existiert<br>
+- Der ImmoTop2-Client schreibt wie bei allen anderen UseCase eine Steuerdatei (Typ "DownloadDocument") in den StagingFolder1<br>Geliefert werden die XML-Attribute "DmsArchivId", "DmsDocumentId", "DateiName" und "RueckgabeVerzeichnis".<br>
+- Das externe DMS liest diese Steuerdatei und schreibt die verlangte Datei im StagingFolder1 mit einem eindeutigen Namen in das Subverzeichnis der "RueckgabeVerzeichnis"<br>
+- Danach schreibt das externe DMS eine Steuerdatei ebenfalls vom Typ "DownloadDocument" in dasselbe Subverzeichnis des StagingFolder1<br>Geliefert werden müssen nur die XML-Attribute "DmsDocumentId" und "DateiName"
+- Falls im DMS ein Verarbeitungsfehler auftritt (zB Datei wurde gelöscht), wird der Fehler benutzerverständlich ins XML-Attribut "Fehlertext" geschrieben<br>
+- Der ImmoTop2-Client entdeckt über einen FileListener diese Steuerdatei im "RueckgabeVerzeichnis" und schreibt die Datei mit dem Namen "DateiName" direkt in das vom Benutzer definierte Exportverzeichnis<br>
 
 
 
