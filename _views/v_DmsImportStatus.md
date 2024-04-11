@@ -13,7 +13,7 @@ In dieser View werden die Status beim Importieren von Dokumenten angezeigt.
 
 ## verwendete Status
 
-| Id  | Status                 |
+| Nr  | Status                 |
 | --- | ---------------------- |
 | 0   | bereit zum Import      |
 | 1   | in Arbeit              |
