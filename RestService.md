@@ -5,6 +5,8 @@ Der
 
 - [REST-Services](#rest-services)
   - [Einrichten des Webservice im ImmoTop 2](#einrichten-des-webservice-im-immotop-2)
+    - [Konfiguration RestServiceUrl Ab Version 2.7](#konfiguration-restserviceurl-ab-version-27)
+    - [Logs](#logs)
   - [Basisinformationen](#basisinformationen)
     - [Authentisierung](#authentisierung)
     - [Versionierung](#versionierung)
@@ -23,10 +25,16 @@ Der
 
 In der Datei 'config.ini' im Verzeichnis des ImmoTop2 Server-Prozesses müssen die folgenden beiden Einträge existieren:
 
-| Name des Parameters      | Notwendigkeit | Kommentar                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| :----------------------- | :------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| RestServiceUrl           | obligatorisch | Der REST-Service wird nur gestartet, wenn dieser Parameter eine gültige URL enthält.</br>Die Sichtbarkeit im Netzwerk muss gewährleistet sein.<br>URL und Port können frei gewählt werden (der Port darf natürlich noch nicht von einem anderen Prozess belegt sein, sonst kann der REST-Service nicht gestartet werden).<br><br>Wenn konfiguriert wird:<br>RestServiceUrl=http://localhost:5100/api/DmsRestServices<br>dann kann zB. in Postman mit GET der folgende REST-Service aufgerufen werden http://localhost:5100/api/DmsRestServices/Test<br>(Version 2.6 RestServiceUrl: http://localhost:8080/ImmoTop2)|
-| SslCertificateThumbPrint | fakultativ    | Wird nur benötigt, wenn https benutzt wird.</br>Enthält den Thumbprint des SSL-Zertifikats.<br>Das SSL-Zertifikat muss im Zertifikatspeicher LocalMachine/My des PC geladen sein.</br>Das SSL-Zertifikat wird nicht von W&W geliefert, denn der Commonname muss ja in die Domain des Kunden integriert sein.<br><br>Wenn der Konfigurationsparameter keinen Wert enthält, sind die REST-Services via http erreichbar.</br>Bis und mit Version 2.6 wurde im ImmoTop2 Server-Dienst für diese REST-Services ein separater Servicehost gestartet.<br><b>Ab Version 2.7</b> laufen diese REST-Services genau gleich wie alle ImmoTop2-Services im selben Kestrel-Webserver. Dh beim Upgrade auf V2.7 ändert der URL der REST-Services und die SSL-Eigenschaften dieser REST-Services und von ImmoTop2 können nicht mehr separiert werden.                                                                                                              |
+| Name des Parameters      | Notwendigkeit                                                            | Kommentar                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| :----------------------- | :----------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| RestServiceUrl           | obligatorisch bis Version 2.6. Wird ab Version 2.7 nicht mehr gebraucht. | Version 2.6 RestServiceUrl: http://localhost:8080/ImmoTop2<br><br> <b>Ab Version 2.7</b> laufen diese REST-Services genau gleich wie alle ImmoTop2-Services im selben Kestrel-Webserver. Dh. beim Upgrade auf V2.7 ändert der URL der REST-Services und die SSL-Eigenschaften dieser REST-Services und von ImmoTop2 können nicht mehr separiert werden. [Konfiguration RestServiceUrl Ab Version 2.7](#konfiguration-restserviceurl-ab-version-27)                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| SslCertificateThumbPrint | fakultativ                                                               | Wird nur benötigt, wenn https benutzt wird.</br>Enthält den Thumbprint des SSL-Zertifikats.<br>Das SSL-Zertifikat muss im Zertifikatspeicher LocalMachine/My des PC geladen sein.</br>Das SSL-Zertifikat wird nicht von W&W geliefert, denn der Commonname muss ja in die Domain des Kunden integriert sein.<br><br>Wenn der Konfigurationsparameter keinen Wert enthält, sind die REST-Services via http erreichbar.</br>Bis und mit Version 2.6 wurde im ImmoTop2 Server-Dienst für diese REST-Services ein separater Servicehost gestartet.<br><br><b>Ab Version 2.7</b> laufen diese REST-Services genau gleich wie alle ImmoTop2-Services im selben Kestrel-Webserver. Dh. beim Upgrade auf V2.7 ändert der URL der REST-Services und die SSL-Eigenschaften dieser REST-Services und von ImmoTop2 können nicht mehr separiert werden. |
+
+### Konfiguration RestServiceUrl Ab Version 2.7
+
+Ab Version 2.7 läuft der REST-Service auch unter dem Kestrel-Webserver, welcher vom Applikationsserver gestartet wird. Das heisst, dass im config.ini des ImmoTop2 Servers Applikationshost und Port definiert werden und diese auch für die DMS-Schnittstelle verwendet werden. Das könnte so ausehen:<br/><br/>[Host]<br/>Application=http://localhost<br/>[Ports]<br>ApplicationPort=5100<br/><br>Dann kann zB. in Postman mit GET der folgende REST-Service aufgerufen werden http://localhost:5100/api/DmsRestServices/Test
+
+### Logs
 
 Bei Problemen befinden sich im Logfile 'WwimmoBusinessServer.log' des ImmoTop2-Servers weitere Informationen:
 - REST-ServiceHost wurde erfolgreich gestartet...
@@ -301,7 +309,7 @@ Request und Response werden im JSON-Format erwartet und zurück geliefert.
 
 In allen Get Methoden wird kein Body übergeben. Dieser Aufruf besteht nur aus dem Header und optional mit einem Param.
 
-Beispiel Aufruf: https://localhost:8080/GetDmsImportFehlerCodes
+Beispiel Aufruf:  http://localhost:5100/api/DmsRestServices/GetDmsImportFehlerCodes
 
 ### Views
 
@@ -353,8 +361,8 @@ _ab Version 2.6.23_
 
 Grundsätzlich ist es möglich nach allen Spalten zu Filtern. Wenn man zum Beispiel allen Konten eines bestimmten Mandanten finden will, sieht der Aufruf so aus:
 
-http://localhost:8080/GetDmsKonto?mandant_seqnr=3
+ http://localhost:5100/api/DmsRestServices/GetDmsKonto?mandant_seqnr=3
 
 Jede zusätzliche Spalte wird mit einem & verknüpft:
 
-http://localhost:8080/GetDmsKonto?mandant_seqnr=3&nebenbuchtypnr=2
+ http://localhost:5100/api/DmsRestServices/GetDmsKonto?mandant_seqnr=3&nebenbuchtypnr=2
