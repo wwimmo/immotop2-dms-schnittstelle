@@ -5,6 +5,7 @@ Diese Staging-Tabelle enthält die einzelnen Belegposten je Kreditorenbeleg.
 - [DmsBelegPosten](#dmsbelegposten)
   - [Tabellendefinition](#tabellendefinition)
   - [MWST-Eingabeart exklusiv](#mwst-eingabeart-exklusiv)
+    - [Beispiel inklusiv und exklusiv MWST:](#beispiel-inklusiv-und-exklusiv-mwst)
 
 ## Tabellendefinition
 
@@ -25,7 +26,7 @@ Diese Staging-Tabelle enthält die einzelnen Belegposten je Kreditorenbeleg.
 | mwstcode_seqnr              | Referenz auf den MwstCode gemäss View v_DmsMwstCode.                                                                                                                                     | key               |         J |             |
 | mwstsatz                    | Der Mwst-Satz, zum Beispiel: 7.70.                                                                                                                                                       | decimal (9.2)     |         J |             |
 | mwstsatzdatum               | Datum um den Mwst-Satz zu ermitteln (ab Version 2.6.43)                                                                                                                                  | date              |         J |
-| nkabrechnungperiodestichtag | Nebenkosten-Abrechnungsperiode-Stichtag<br/>Die Nebenkosten-Abrechnungsperioden-Nummer wird mit dem Stichtag bestimmt.     | date              |         J |             |
+| nkabrechnungperiodestichtag | Nebenkosten-Abrechnungsperiode-Stichtag<br/>Die Nebenkosten-Abrechnungsperioden-Nummer wird mit dem Stichtag bestimmt.                                                                   | date              |         J |             |
 | nr                          | Die Nummer dient zur Sortierung der Belegposten je Beleg.                                                                                                                                | int               |         J |             |
 | preisproeinheit             | Preis pro Einheit. Die Einheit ist beim Konto in der Buchhaltung hinterlegt (v_DmsKonto).                                                                                                | amount            |         J |             |
 | unterhalt_seqnr             | Fremdschlüssel zum Unterhalt (ab Version 2.6.45)                                                                                                                                         | key               |         J |
@@ -40,3 +41,11 @@ Wenn die Felder wie oben beschrieben abgefüllt werden, handelt es sich um einen
 - betragmwstvoll: Der volle Steuerbetrag
 
 Der Betrag inklusiv MWST wird dann vom System berechnet.
+
+### Beispiel inklusiv und exklusiv MWST:
+   
+|                | Inkl. WMWST    | exkl. MWST     |
+| -------------- | -------------- | -------------- |
+| betragbrutto   | 108.10         | 100.00         |
+| betragexklmwst | 100.00         | 100.00         |
+| betragmwstvoll | 8.10           | 8.10           |
