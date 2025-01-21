@@ -23,5 +23,7 @@ In dieser View wird der Kontoplan zum Mandanten angezeigt. Konten, die eine Kost
 | kontengruppehaben_seqnr | Primärschlüssel Abschlussposition bei Haben-Saldo                    | long     |    64 |    J     |
 | kontengruppehaben_nr    | Nummer der Abschlussposition bei Haben-Saldo                         | varchar  |    20 |    J     |
 | code                    | Konsolidierungscode (nur bei Hauptbuchkonten)                        | nvarchar |   100 |    J     |
+| gueltigvon              | Gültig-von-Datum des Kontos (Ab Version 2.7.19)                      | date     |       |    N     |
+| gueltigbis              | Gültig-bis-Datum des Kontos (Ab Version 2.7.19)                      | date     |       |    J     |
 | insts                   | Insert Timestamp (Ab Version 2.6.32)                                 | date     |       |    N     |
 | updts                   | Update Timestamp (Ab Version 2.6.32)                                 | date     |       |    N     |
