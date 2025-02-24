@@ -44,7 +44,8 @@ Die Verwendung der REST-Services wird in diesem Dokument beschrieben: [REST-Serv
 Für die Datenbank-Schnittstelle muss eine direkte Netzwerkverbindung vom DMS zur ImmoTop2-Datenbank existieren.
 ImmoTop 2 stellt Stammdaten den DMS in [Views](UebersichtViews.md) zur Verfügung.
 
-Das DMS erhält einen Benutzer für lesenden und schreibenden Zugriff. Die Verbindung auf die [Views](UebersichtViews.md) oder [DB Prozeduren](EinsatzProzeduren.md) erfolgt mittels ODBC, zusätzlich denkbar wäre auch eine Verbindung mittels ADO.Net, OLE.DB. Alternativ stehen auch noch [REST-Services](RestService.md) zur Verfügung.
+Das DMS erhält einen Benutzer für lesenden und schreibenden Zugriff. 
+Die Verbindung auf die [Views](UebersichtViews.md) oder [DB Prozeduren](EinsatzProzeduren.md) erfolgt mittels [REST-Services](RestService.md), Alternativ stehen auch noch ODBC zur Verfügung (nicht mehr empfohlen).
 
 Aus Performancegründen, wird empfohlen, die Daten Lokal in Zwischentabellen zu speichern und nicht in Echtzeit auf die Views oder den REST-Service zuzugreifen.
 
