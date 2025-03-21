@@ -25,10 +25,10 @@ Der
 
 In der Datei 'config.ini' im Verzeichnis des ImmoTop2 Server-Prozesses können die folgenden beiden Einträge existieren.
 
-| Name des Parameters      | Notwendigkeit                                                            | Kommentar                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| :----------------------- | :----------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| *RestServiceUrl*           | *obligatorisch bis Version 2.6. Wird ab Version 2.7 nicht mehr gebraucht.* | *Version 2.6 RestServiceUrl: http://localhost:8080/ImmoTop2<br><br> <b>Ab Version 2.7</b> laufen diese REST-Services genau gleich wie alle ImmoTop2-Services im selben Kestrel-Webserver. Dh. beim Upgrade auf V2.7 ändert der URL der REST-Services und die SSL-Eigenschaften dieser REST-Services und von ImmoTop2 können nicht mehr separiert werden.* [Konfiguration RestServiceUrl Ab Version 2.7](#konfiguration-restserviceurl-ab-version-27)                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| SslCertificateThumbPrint | fakultativ                                                               | Wird nur benötigt, wenn https benutzt wird.</br>Enthält den Thumbprint des SSL-Zertifikats.<br>Das SSL-Zertifikat muss im Zertifikatspeicher LocalMachine/My des PC geladen sein.</br>Das SSL-Zertifikat wird nicht von W&W geliefert, denn der Commonname muss ja in die Domain des Kunden integriert sein.<br><br>Wenn der Konfigurationsparameter keinen Wert enthält, sind die REST-Services via http erreichbar.</br>Bis und mit Version 2.6 wurde im ImmoTop2 Server-Dienst für diese REST-Services ein separater Servicehost gestartet.<br><br><b>Ab Version 2.7</b> laufen diese REST-Services genau gleich wie alle ImmoTop2-Services im selben Kestrel-Webserver. Dh. beim Upgrade auf V2.7 ändert der URL der REST-Services und die SSL-Eigenschaften dieser REST-Services und von ImmoTop2 können nicht mehr separiert werden. |
+| Name des Parameters      | Notwendigkeit                                                              | Kommentar                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| :----------------------- | :------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| *RestServiceUrl*         | *obligatorisch bis Version 2.6. Wird ab Version 2.7 nicht mehr gebraucht.* | *Version 2.6 RestServiceUrl: http://localhost:8080/ImmoTop2<br><br> <b>Ab Version 2.7</b> laufen diese REST-Services genau gleich wie alle ImmoTop2-Services im selben Kestrel-Webserver. Dh. beim Upgrade auf V2.7 ändert der URL der REST-Services und die SSL-Eigenschaften dieser REST-Services und von ImmoTop2 können nicht mehr separiert werden.* [Konfiguration RestServiceUrl Ab Version 2.7](#konfiguration-restserviceurl-ab-version-27)                                                                                                                                                                                                                                                                                                                                                                                       |
+| SslCertificateThumbPrint | fakultativ                                                                 | Wird nur benötigt, wenn https benutzt wird.</br>Enthält den Thumbprint des SSL-Zertifikats.<br>Das SSL-Zertifikat muss im Zertifikatspeicher LocalMachine/My des PC geladen sein.</br>Das SSL-Zertifikat wird nicht von W&W geliefert, denn der Commonname muss ja in die Domain des Kunden integriert sein.<br><br>Wenn der Konfigurationsparameter keinen Wert enthält, sind die REST-Services via http erreichbar.</br>Bis und mit Version 2.6 wurde im ImmoTop2 Server-Dienst für diese REST-Services ein separater Servicehost gestartet.<br><br><b>Ab Version 2.7</b> laufen diese REST-Services genau gleich wie alle ImmoTop2-Services im selben Kestrel-Webserver. Dh. beim Upgrade auf V2.7 ändert der URL der REST-Services und die SSL-Eigenschaften dieser REST-Services und von ImmoTop2 können nicht mehr separiert werden. |
 
 ### Konfiguration RestServiceUrl Ab Version 2.7
 
@@ -141,7 +141,18 @@ Request und Response werden im JSON-Format erwartet und zurück geliefert.
                 "Nr": 1,
                 "PreisProEinheit": null,
                 "unterhalt_seqnr": null,
-                "VorsteuerAnteil": null
+                "VorsteuerAnteil": null,
+                "DmsBelegPostenUnterhalt" : [
+                    {
+                        "Bemerkung" : "Das ist die Bemerkung des Unterhaltes",
+                        "Betreff" : "Betreff des Unterhaltes",
+                        "mand_seqnr" : 3,
+                        "GueltigVon" : "2022-01-01T00:00:00",
+                        "Kosten" : 512.25,
+                        "StatusGueltigAb" : "2022-01-01T00:00:00",
+                        "unterhaltstatus_seqnr" : 1
+                    }
+                ]
             },
             {
                 "BetragBrutto": 12345.65,
@@ -162,7 +173,21 @@ Request und Response werden im JSON-Format erwartet und zurück geliefert.
                 "Nr": 2,
                 "PreisProEinheit": null,
                 "unterhalt_seqnr": null,
-                "VorsteuerAnteil": null
+                "VorsteuerAnteil": null,
+                "DmsBelegPostenGeraet" : [
+                    {
+                        "Bemerkung" : "Das ist die Bemerkung des Geraetes",
+                        "Betreff" : "Betreff des Unterhaltes",
+                        "mand_seqnr" : 3,
+                        "liegenschaft_seqnr" : 10,
+                        "objekt_seqnr" : 203,
+                        "GueltigVon" : "2022-01-01T00:00:00",
+                        "marke" : "Electrolux",
+                        "modell" : "Backofen xyz",
+                        "StatusGueltigAb" : "2022-01-01T00:00:00",
+                        "seriennummer" : "123-abc"
+                    }
+                ]
             }
         ]
     }
@@ -358,6 +383,7 @@ Für jede View gibt es eine passende Get Methode:
 | GetDmsZahlungposten                      | v_DmsZahlungposten                                                                                                           |
 | GetDmsGeraet                             | v_DmsGeraet                                                                                                                  |
 | GetDmsUnterhalt                          | v_DmsUnterhalt                                                                                                               |
+| GetDmsUnterhaltStatus                    | v_DmsUnterhaltStatus - _Verfügbar ab Version 2.7.23_                                                                         |
 | GetDmsImport                             | Tabelle DmsImport                                                                                                            |
 | GetDmsBeleg                              | Tabelle DmsBeleg                                                                                                             |
 | GetDmsBelegPosten                        | Tabelle DmsBelegPosten                                                                                                       |

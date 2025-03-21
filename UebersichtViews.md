@@ -47,3 +47,4 @@ Die nachfolgenden Views dienen der Workflow Engine des DMS dazu, die zulässigen
 | [v_DmsBkphElement](_views/v_DmsBkphElement.md)                                     | Informationen zu den BKP-H-Elementen                        |
 | [v_DmsBkphElementGruppe](_views/v_DmsBkphElementGruppe.md)                         | Informationen zu den BKP-H-Elementen Gruppen                |
 | [v_DmsUnterhalt](_views/v_DmsUnterhalt.md)                                         | Informationen zu den Unterhalten                            |
+| [v_DmsUnterhaltStatus](_views/v_DmsUnterhaltStatus.md)                             | Informationen zum Status des Unterhalts                     |

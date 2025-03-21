@@ -5,13 +5,12 @@
   - [Generelles](#generelles)
   - [Schnittstellen](#schnittstellen)
   - [Daten lesen und schreiben in ImmoTop2](#daten-lesen-und-schreiben-in-immotop2)
+    - [REST-Services](#rest-services)
     - [Datenbank-Schnittstelle](#datenbank-schnittstelle)
       - [DB Views](#db-views)
       - [DB Prozeduren](#db-prozeduren)
       - [Staging Tabellen](#staging-tabellen)
-    - [REST-Services](#rest-services)
   - [Ablauf Kreditorenworkflow](#ablauf-kreditorenworkflow)
-  - [Integration in SQL Server](IntegrationSqlServer.md)
 
 ## Offene DMS Schnittstelle für das Immobilien-ERP ImmoTop2
 
@@ -63,8 +62,8 @@ Details zu den Staging Tabellen sind hier dokumentiert:
 - [DmsImport](_stagingTabellen/DmsImport.md)
 - [DmsBeleg](_stagingTabellen/DmsBeleg.md)
 - [DmsBelegPosten](_stagingTabellen/DmsBelegPosten.md)
-
-
+- [DmsBelegPostenUnterhalt](_stagingTabellen/DmsBelegPostenUnterhalt.md)
+- [DmsBelegPostenGeraet](_stagingTabellen/DmsBelegPostenGeraet.md)
 
 ## Ablauf Kreditorenworkflow
 
