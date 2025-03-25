@@ -13,4 +13,4 @@ _Verfügbar ab Version 2.7.24_
 | konto_seqnr        | Id des Kontos                                                   | long     |    64 |    N     |
 | kostenstelle_seqnr | Id der Kostenstelle                                             | long     |    64 |    Y     |
 | budget             | Budget per aktuellem Datum                                      | decimal  |       |    N     |
-| buch               | Buchbezeichnung:<br>Hauptbuch<br>Debitoren<br>Kapital<nr>Kosten | varchar  |     9 |    N     |
+| buch               | Buchbezeichnung:<br>Hauptbuch<br>Debitoren<br>Kapital<br>Kosten | varchar  |     9 |    N     |
